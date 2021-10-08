@@ -1,0 +1,135 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #f4f4f4;
+}
+.p_container{
+    width: 100%;
+    height: 502px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1000px;
+}
+.tabs-left{
+    border-bottom: none;
+    display: block;
+}
+.tabs-left {
+    border-right: 1px solid #ddd;
+}
+.tabs-left>li {
+    float: none;
+    margin-bottom: 2px;
+    display: block;
+}
+.tabs-left>li {
+    margin-right: -1px;
+}
+.tabs-left>li.active>a,
+.tabs-left>li.active>a:hover,
+.tabs-left>li.active>a:focus {
+    border-bottom-color: #ddd;
+    border-right-color: transparent;
+}
+.tabs-left>li>a {
+    display:block;
+    background: #e4e4e4;
+    padding: 0 15px;
+    color: black;
+    font-weight: 500;
+}
+.tabs-left>li>a:hover{
+    text-decoration: none;
+    background: white;
+}
+.tabs-left>li>a.active{
+    background: white;
+}
+.tabs-left li a img{
+    display: block;
+    max-width: 100%;
+    max-height: 100px;
+    margin: 0 auto;
+    border-bottom: 1px solid #9f9f9f;
+}
+.tabs-left li a span{
+
+}
+
+.c_method,.c_detail{
+    background: #ffffff;
+    height: 502px;
+    padding: 0 10px;
+}
+hr{
+    width: 40px;
+    border-width: 3px;
+    border-color: #f2981b;
+    margin: 1rem auto;
+}
+.c-search{
+    width: 80%;
+    margin: 0 auto;
+}
+.c-search .input-group-text{
+    background: #e5e5e5;
+}
+.c-search .form-control:focus{
+    box-shadow: none;
+}
+.icon-search{
+    width: 20px;
+}
+.c_list{
+    height: 270px;
+    overflow-y: auto;
+    margin-top: 60px;
+}
+.mt-item{
+    width: 24%;
+    float: left;
+    margin: 0 0.5% 1rem;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+.mt-item:hover, .mt-item.selected{
+    border: 1px solid #f2981b;
+}
+.mt-item__icon{
+    height: 60px;
+    border-bottom: 1px solid #d3d3d3;
+}
+.mt-item__icon img{
+    max-width: 80%;
+    max-height: 80%;
+}
+.mt__name{
+    font-size: 12px;
+    height: 54px;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    font-weight: 500;
+}
+.c_detail-list div{
+    margin-bottom: 15px;
+    border-bottom: 1px solid #7d7d7d;
+    font-weight: 500;
+    font-size: 12px;
+}
+.c_detail-list .detail-name{
+    color: #878787;
+}
+.c_detail-list .detail-value{
+    font-weight: 500;
+}
