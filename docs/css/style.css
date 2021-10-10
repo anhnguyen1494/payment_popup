@@ -88,7 +88,7 @@ hr{
 .c_list{
     height: 270px;
     overflow-y: auto;
-    margin-top: 60px;
+    margin-top: 3vw;
 }
 .mt-item{
     width: 24%;
@@ -132,4 +132,33 @@ hr{
 }
 .c_detail-list .detail-value{
     font-weight: 500;
+}
+@media only screen and (max-width: 900px) {
+    .tabs-left>li>a {
+        font-size: 14px;
+    }
+    .c_method h2,.c_detail h2{
+        font-size: 24px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .c_detail-list div{
+        display: block!important;
+    }
+    .c_detail-list .detail-name{
+        display: block;
+        width: 100%;
+    }
+    .mt__name{
+        font-size: 10px;
+        height: 48px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .c_detail-list div{
+        font-size: 10px;
+    }
+}
+@media only screen and (max-width: 500px) {
+
 }
