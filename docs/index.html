@@ -20,10 +20,10 @@
 <body>
 <main>
     <div class="p_container">
-        <div class="row">
-            <div class="col-xs-9 col-9">
+        <div class="row p_container-row">
+            <div class="col-xs-9 col-9 p_container-row-detail">
                 <div class="row">
-                    <div class="col-xs-2 col-2 pr-0 pl-0">
+                    <div class="col-xs-2 col-2 pr-0 pl-0 tab_container">
                         <ul class="nav nav-tabs tabs-left" id="myTab" role="tablist">
                             <li>
                                 <a href="#sms" data-toggle="tab" role="tab" aria-controls="sms" aria-selected="true"
@@ -55,7 +55,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-xs-10 col-10 pr-0 pl-0">
+                    <div class="col-xs-10 col-10 pr-0 pl-0 tab_container">
                         <div class="tab-content" id="TabContent">
                             <div class="tab-pane fade show active" id="sms" role="tabpanel" aria-labelledby="sms-tab">
                                 <div class="c_method">
@@ -309,7 +309,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-3 col-3">
+            <div class="col-xs-3 col-3 p_container-row-detail">
                 <div class="c_detail">
                     <h2 class="text-center">Đơn hàng</h2>
                     <hr>
@@ -362,6 +362,22 @@
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
+        /*$('#bank_list').slick({
+            responsive: [
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 5,
+                        slidesToScroll: 1,
+                        vertical: true,
+                        verticalSwiping: true,
+                        infinite: false,
+                        dots: false,
+                        nav: false
+                    }
+                },
+            ]
+        });*/
     });
 </script>
 </body>

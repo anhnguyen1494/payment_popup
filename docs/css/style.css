@@ -149,14 +149,65 @@ hr{
         display: block;
         width: 100%;
     }
+    .mt-item {
+        width: 31%;
+    }
     .mt__name{
         font-size: 10px;
         height: 48px;
     }
 }
 @media only screen and (max-width: 600px) {
+    .p_container-row{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .p_container-row-detail{
+        width: 100%!important;
+        max-width: 100%!important;
+    }
+    .mt-item {
+        width: 47%;
+    }
+    .mt__name {
+        font-size: 12px;
+        height: 52px;
+    }
+    .c_detail{
+        height: auto;
+        padding: 15px;
+        border-radius: 15px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .c_detail-list{
+        margin-top: 1rem!important;
+    }
     .c_detail-list div{
-        font-size: 10px;
+        display: flex!important;
+    }
+    .c_detail-list .detail-name {
+        display: inline-block;
+        width: auto;
+    }
+    .tab_container{
+        width: 100%!important;
+        max-width: 100%!important;
+        flex: 0 0 100%;
+        padding-right: 15px!important;
+        padding-left: 15px!important;
+    }
+    .tabs-left{
+        display: flex;
+        justify-content: space-between;
+    }
+    .tabs-left>li {
+        max-width: 24%;
+        margin-bottom: 0;
+    }
+    .tabs-left>li>a {
+        font-size: 6px;
+        min-height: 50px;
     }
 }
 @media only screen and (max-width: 500px) {
