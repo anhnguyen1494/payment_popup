@@ -185,6 +185,7 @@ hr{
     }
     .c_detail-list div{
         display: flex!important;
+        margin-bottom: 5px;
     }
     .c_detail-list .detail-name {
         display: inline-block;
@@ -211,5 +212,14 @@ hr{
     }
 }
 @media only screen and (max-width: 500px) {
-
+    .c_list{
+        height: auto;
+        overflow-y: inherit;
+    }
+    .mt-item__icon{
+        height: 40px;
+    }
+    .mt__name{
+        height: 35px;
+    }
 }
