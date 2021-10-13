@@ -210,26 +210,45 @@
         var data_array = $(json.PAIDList).filter(function (i,n){
             return n.Group === type;
         });
+        var lastSelect = $(json.PAIDList).filter(function (i,n){
+            return n.PAID === json.LastSelect;
+        });
+        var html_lastSelect = '';
         var html = '';
+        var lastSelect_flag = false;
         for (var i=0;i<data_array.length;i++)
         {
-            html += '<div class="mt-item" data-paid="'+data_array[i].PAID+'">' +
-                '<div class="mt-item__icon d-flex justify-content-center align-items-center">' +
-                '<img src="'+getImageUrl(data_array[i].ICON)+'" alt="">' +
-                '</div>' +
-                '<div class="mt__name text-center">' +
-                data_array[i].ShortName +
-                '<span class="mt__keyword">'+data_array[i].FullName +' '+ data_array[i].Keyword + '</span>'+
-                '</div>' +
-                '</div>';
+            if (lastSelect.length > 0){
+                if(lastSelect[0].Group === data_array[i].Group && lastSelect_flag === false){
+                    html += renderItem(lastSelect[0]);
+                    lastSelect_flag = true;
+                }
+                if (lastSelect[0].PAID !== data_array[i].PAID){
+                    html += renderItem(data_array[i]);
+                }
+            }else{
+                html += renderItem(data_array[i]);
+            }
         }
-        $(ele).html(html);
+        $(ele).html(html_lastSelect+html);
     }
     function renderOrderInfo(json) {
         $('#f_data').val(json.data);
         $('#order_name').html(json.PRODUCT);
         $('#order_id').html();
         $('#order_amount').html(addCommas(json.AMOUNTList[0].AMOUNT) + ' '+json.AMOUNTList[0].CUID);
+    }
+    function renderItem(data) {
+        var html_item = '<div class="mt-item" data-paid="'+data.PAID+'">' +
+            '<div class="mt-item__icon d-flex justify-content-center align-items-center">' +
+            '<img src="'+getImageUrl(data.ICON)+'" alt="">' +
+            '</div>' +
+            '<div class="mt__name text-center">' +
+            data.ShortName +
+            '<span class="mt__keyword">'+data.FullName +' '+ data.Keyword + '</span>'+
+            '</div>' +
+            '</div>';
+        return html_item;
     }
     function getImageUrl(img) {
         return 'https://cdn-files.esgame.vn/payment/icon/'+img;
