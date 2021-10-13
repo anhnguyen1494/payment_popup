@@ -93,15 +93,15 @@ hr{
 .mt-item{
     width: 24%;
     float: left;
-    margin: 0 0.5% 1rem;
+    margin: 0 0.5% 0.5rem;
     padding: 5px;
     border-radius: 5px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     cursor: pointer;
 }
 .mt-item:hover, .mt-item.selected{
-    border: 1px solid #f2981b;
+    border: 2px solid #f2981b;
 }
 .mt-item__icon{
     height: 60px;
@@ -132,6 +132,42 @@ hr{
 }
 .c_detail-list .detail-value{
     font-weight: 500;
+}
+#TabContent {
+    position: relative;
+}
+.form-payment{
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+}
+.form-payment button{
+    padding: 3px 15px;
+    border-radius: 5px;
+    border: 1px solid #f2981b;
+    font-weight: bold;
+    color: #f2981b;
+    background: white;
+    cursor: pointer;
+}
+.form-payment #confirm{
+    background: #f2981b;
+    color: white;
+}
+.form-payment button:hover{
+    background: gray!important;
+}
+.form-payment #confirm:hover{
+    background: #28a745!important;
+}
+
+#bank_list_mb{
+    display: none!important;
+}
+#bank_list{
+    display: block!important;
 }
 @media only screen and (max-width: 900px) {
     .tabs-left>li>a {
@@ -212,10 +248,15 @@ hr{
     }
 }
 @media only screen and (max-width: 500px) {
-    /*.c_list{*/
-        /*height: auto;*/
-        /*overflow-y: inherit;*/
-    /*}*/
+    #bank_list_mb{
+        display: block!important;
+    }
+    #bank_list{
+        display: none!important;
+    }
+    .c_method {
+        height: 450px;
+    }
     .mt-item__icon{
         height: 40px;
     }
