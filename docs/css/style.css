@@ -166,7 +166,13 @@ hr{
 .form-payment #confirm:hover{
     background: #28a745!important;
 }
-
+.c_detail-list div{
+    display: block!important;
+}
+.c_detail-list .detail-name{
+    display: block;
+    width: 100%;
+}
 @media only screen and (max-width: 900px) {
     .tabs-left>li>a {
         font-size: 14px;
