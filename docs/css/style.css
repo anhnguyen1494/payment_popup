@@ -240,15 +240,20 @@ hr{
     }
     .tabs-left{
         display: flex;
-        justify-content: space-between;
+        /*justify-content: space-between;*/
+        border-right: none;
     }
     .tabs-left>li {
         max-width: 24%;
         margin-bottom: 0;
     }
+    .tabs-left>li + li{
+        margin-left: 1.6%;
+    }
     .tabs-left>li>a {
         font-size: 6px;
         min-height: 50px;
+        height: 100%;
     }
 }
 @media only screen and (max-width: 500px) {
