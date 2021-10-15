@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Payment ESG</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: #f4f4f4;
+        }
+        .p_container{
+            width: 100%;
+            height: 502px;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 1000px;
+        }
+        .c_method,.c_detail{
+            background: #ffffff;
+            height: 502px;
+            padding: 0 10px;
+        }
+        hr{
+            width: 40px;
+            border-width: 3px;
+            border-color: #f2981b;
+            margin: 1rem auto;
+        }
+        .c_detail-list div{
+            display: block!important;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #7d7d7d;
+            font-weight: 500;
+            font-size: 12px;
+        }
+        .c_detail-list .detail-name{
+            color: #878787;
+            display: block;
+            width: 100%;
+        }
+        .c_detail-list .detail-value{
+            font-weight: 500;
+        }
+        .form_sms{
+            margin: 10% auto 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .form_sms .sms-content{
+            color: black;
+            font-weight: 600;
+        }
+        .form_sms .submit{
+            background: #f2981b;
+            border: 1px solid #f2981b;
+            border-radius: 5px;
+            color: white;
+            font-weight: 600;
+            padding: 3px 15px;
+            cursor: pointer;
+        }
+        .form_sms .submit:hover{
+            background: #28a745!important;
+            text-decoration: none;
+        }
+        @media only screen and (max-width: 900px) {
+            .c_method h2,.c_detail h2{
+                font-size: 24px;
+            }
+        }
+        @media only screen and (max-width: 768px) {
+            .c_detail-list div{
+                display: block!important;
+            }
+            .c_detail-list .detail-name{
+                display: block;
+                width: 100%;
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            .p_container-row{
+                display: flex;
+                flex-direction: column-reverse;
+            }
+            .p_container-row-detail{
+                width: 100%!important;
+                max-width: 100%!important;
+            }
+            .c_detail{
+                height: auto;
+                padding: 15px;
+                border-radius: 15px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+            .c_detail-list{
+                margin-top: 1rem!important;
+            }
+            .c_detail-list div{
+                display: flex!important;
+                margin-bottom: 5px;
+            }
+            .c_detail-list .detail-name {
+                display: inline-block;
+                width: auto;
+            }
+            .tabs-left>li {
+                max-width: 24%;
+                margin-bottom: 0;
+            }
+            .tabs-left>li + li{
+                margin-left: 1.6%;
+            }
+            .tabs-left>li>a {
+                font-size: 6px;
+                min-height: 50px;
+                height: 100%;
+            }
+        }
+        @media only screen and (max-width: 500px) {
+
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div class="p_container">
+        <div class="row p_container-row">
+            <div class="col-xs-9 col-9 p_container-row-detail">
+                <div class="c_method">
+                    <h2 class="text-center">SMS</h2>
+                    <hr>
+                    <form action="" method="post" class="form_sms">
+                        <div class="sms-content text-center mb-3">
+                            MC DK20 BLTT C000100000011Y2021101510001331074514633
+                        </div>
+                        <a href="sms:888?&body=MC DK20 BLTT C000100000011Y2021101510001331074514633" class="submit">Gửi mã trên đến 888 qua SMS</a>
+                    </form>
+                </div>
+            </div>
+            <div class="col-xs-3 col-3 p_container-row-detail">
+                <div class="c_detail">
+                    <h2 class="text-center">Đơn hàng</h2>
+                    <hr>
+                    <div class="c_detail-list mt-5">
+                        <div class="d-flex justify-content-between">
+                            <span class="detail-name">Đơn hàng:</span>
+                            <span class="detail-value" id="order_name">ESGAME123</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="detail-name">OID:</span>
+                            <span class="detail-value" id="order_id">481401843218904</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="detail-name">Số tiền:</span>
+                            <span class="detail-value" id="order_amount">199.000 VNĐ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+    });
+</script>
+</body>
+</html>
