@@ -101,6 +101,7 @@
             height: 270px;
             overflow-y: auto;
             margin-top: 3vw;
+            position: relative;
         }
         .mt-item{
             width: 24%;
@@ -184,6 +185,29 @@
         .c_detail-list .detail-name{
             display: block;
             width: 100%;
+        }
+        .card-input-container{
+            width: 100%;
+            height: 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: #ffffff;
+            transition:  height 0.5s ease-in-out;
+            overflow: hidden;
+        }
+        .form_card{
+            max-width: 450px;
+            margin: 5% auto 0;
+            width: 100%;
+        }
+        .form_card .input-group-text{
+            min-width: 85px;
+            background: #ffeed7;
+        }
+        .form_card input{
+            color: black;
+            font-weight: 600;
         }
         @media only screen and (max-width: 900px) {
             .tabs-left>li>a {
@@ -376,8 +400,8 @@
                             <form action="" method="post" target="_self" class="form-payment">
                                 <input type="hidden" name="SPAID" value="" id="f_SPAID">
                                 <input type="hidden" name="data" value="" id="f_data">
-                                <input type="hidden" name="GSERIAL" value="CA00000000">
-                                <input type="hidden" name="GPIN" value="1111111111">
+                                <input type="hidden" name="Serial" value="" id="f_Serial">
+                                <input type="hidden" name="PinCode" value="" id="f_PinCode">
                                 <button id="confirm" type="submit" value="Submit">Tiếp tục</button>
                                 <button >Huỷ bỏ</button>
                             </form>
@@ -421,14 +445,20 @@
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
 <script>
     $(document).ready(function () {
-        var json = {"Tpye":"SlectPAID","data":"eyJNU0dfVFlQRSI6IjAxMDAiLCJQQ09ERSI6IjMwMDAwMCIsIkNJRCI6IkMwMDAwMTAwMDAwMDEiLCJDT0lEIjoiQ1AyMDIxMTAxNDE4NDIxOCIsIkNVSUQiOiJWTkQiLCJQQUlEIjoiIiwiQU1PVU5UIjoiMTAwMDAuMDAiLCJSRVRVUk5fVVJMIjoiaHR0cDpcL1wvMjAzLjc0LjIwMy4xODZcL2VzZ3Rlc3RcL1JldHVybl9VUkwucGhwIiwiT1JERVJfVFlQRSI6IkUiLCJNRU1PIjoiIiwiUFJPRFVDVF9OQU1FIjoiTlx1MWVhMXAgMTAwMDAgVk5cdTAxMTAgbXVhIDMwIFZcdTAwZTBuZyIsIlBST0RVQ1RfSUQiOiJkaGxjbl9hX252XzAwMDEwIiwiVVNFUl9BQ0NUSUQiOiIzOCIsIkVTR19JTkZPIjoiVEVTVF9JTmZPIiwiRVJRQyI6Ijd3VnYwbysyajUyNDBTcWh2aU8xWmdFb3RPYz0iLCJFUlFDSUkiOiJaVUZBUUZkZU1UWlRsa0pZTjduUEh4N2dBQzA9In0=","PRODUCT":"Nạp 10000 VNĐ mua 30 Vàng","AMOUNTList":[{"AMOUNT":"10000.00","CUID":"VND"}],"LastSelect":"COPGAT01","PAIDList":[{"PAID":"COPESW01","ShortName":"ESG Wallet","FullName":"ESG Wallet","Group":"WALLET","CUID":"VND","Keyword":"COPESW01|ESG Wallet|ESG Wallet","ICON":"COPESW01.svg"},{"PAID":"TELVTM01","ShortName":"Viettel","FullName":"Viettel","Group":"TELECO","CUID":"VND","Keyword":"TELVTM01|Viettel|Viettel","ICON":"TELVTM01.svg"},{"PAID":"COPGAT01","ShortName":"Gate Card","FullName":"Gate Card","Group":"COIN","CUID":"VND","Keyword":"COPGAT01|Gate Card|Gate Card","ICON":"COPGAT01.svg"},{"PAID":"COPMOM01","ShortName":"MOMO","FullName":"MOMO","Group":"COIN","CUID":"VND","Keyword":"COPMOM01|MOMO|MOMO","ICON":"COPMOM01.svg"},{"PAID":"COPVTC02","ShortName":"VTC Pay","FullName":"VTC Pay","Group":"COIN","CUID":"VND","Keyword":"COPVTC02|VTC Pay|VTC Pay","ICON":"COPVTC02.svg"},{"PAID":"COPVTC04","ShortName":"Viettel Pay","FullName":"Viettel Pay","Group":"COIN","CUID":"VND","Keyword":"COPVTC04|Viettel Pay|Viettel Pay","ICON":"COPVTC04.svg"},{"PAID":"BNKVNP23","ShortName":"NCB","FullName":"National Citizen Bank - NCB","Group":"BANK","CUID":"VND","Keyword":"BNKVNP23|NCB|National Citizen Bank - NCB","ICON":"BNKVNP23.svg"},{"PAID":"BNKVTC01","ShortName":"VietcomBank","FullName":"JSC Bank for Foreign Trade of Vietnam - Vietcombank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC01|VietcomBank|JSC Bank for Foreign Trade of Vietnam - Vietcombank","ICON":"BNKVTC01.svg"},{"PAID":"BNKVTC02","ShortName":"Techcombank","FullName":"Vietnam Technological and Commercial Joint- stock Bank - Techcombank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC02|Techcombank|Vietnam Technological and Commercial Joint- stock Bank - Techcombank","ICON":"BNKVTC02.svg"},{"PAID":"BNKVTC03","ShortName":"MBBank","FullName":"Military Commercial Joint Stock Bank - MBBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC03|MBBank|Military Commercial Joint Stock Bank - MBBank","ICON":"BNKVTC03.svg"},{"PAID":"BNKVTC04","ShortName":"Vietinbank","FullName":"Vietnam Joint Stock Commercial Bank for Industry and Trade - Vietinbank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC04|Vietinbank|Vietnam Joint Stock Commercial Bank for Industry and Trade - Vietinbank","ICON":"BNKVTC04.svg"},{"PAID":"BNKVTC05","ShortName":"Agribank","FullName":"Vietnam Bank for Agriculture and Rural Development - Agribank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC05|Agribank|Vietnam Bank for Agriculture and Rural Development - Agribank","ICON":"BNKVTC05.svg"},{"PAID":"BNKVTC06","ShortName":"DongABank","FullName":"DongA Joint Stock Commercial Bank - DongABank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC06|DongABank|DongA Joint Stock Commercial Bank - DongABank","ICON":"BNKVTC06.svg"},{"PAID":"BNKVTC07","ShortName":"Oceanbank","FullName":"Ocean Commercial One Member Limited Liability Bank - Oceanbank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC07|Oceanbank|Ocean Commercial One Member Limited Liability Bank - Oceanbank","ICON":"BNKVTC07.svg"},{"PAID":"BNKVTC08","ShortName":"BIDV","FullName":"Bank for Investment and Development of Vietnam - BIDV","Group":"BANK","CUID":"VND","Keyword":"BNKVTC08|BIDV|Bank for Investment and Development of Vietnam - BIDV","ICON":"BNKVTC08.svg"},{"PAID":"BNKVTC09","ShortName":"SHB","FullName":"Saigon – Hanoi Commercial Joint Stock Bank - SHB","Group":"BANK","CUID":"VND","Keyword":"BNKVTC09|SHB|Saigon – Hanoi Commercial Joint Stock Bank - SHB","ICON":"BNKVTC09.svg"},{"PAID":"BNKVTC10","ShortName":"VIB","FullName":"Vietnam International Commercial Joint Stock Bank - VIB","Group":"BANK","CUID":"VND","Keyword":"BNKVTC10|VIB|Vietnam International Commercial Joint Stock Bank - VIB","ICON":"BNKVTC10.svg"},{"PAID":"BNKVTC11","ShortName":"MaritimeBank","FullName":"Vietnam Maritime Commercial Joint Stock Bank - MaritimeBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC11|MaritimeBank|Vietnam Maritime Commercial Joint Stock Bank - MaritimeBank","ICON":"BNKVTC11.svg"},{"PAID":"BNKVTC12","ShortName":"Eximbank","FullName":"Vietnam Export Import Commercial Joint Stock Bank - Eximbank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC12|Eximbank|Vietnam Export Import Commercial Joint Stock Bank - Eximbank","ICON":"BNKVTC12.svg"},{"PAID":"BNKVTC13","ShortName":"ACB","FullName":"Asia Commercial Joint Stock Bank - ACB","Group":"BANK","CUID":"VND","Keyword":"BNKVTC13|ACB|Asia Commercial Joint Stock Bank - ACB","ICON":"BNKVTC13.svg"},{"PAID":"BNKVTC14","ShortName":"HDBank","FullName":"Ho Chi Minh City Development Joint Stock Commercial Bank - HDBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC14|HDBank|Ho Chi Minh City Development Joint Stock Commercial Bank - HDBank","ICON":"BNKVTC14.svg"},{"PAID":"BNKVTC15","ShortName":"NamABank","FullName":"Nam A Commercial Joint Stock Bank - NamABank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC15|NamABank|Nam A Commercial Joint Stock Bank - NamABank","ICON":"BNKVTC15.svg"},{"PAID":"BNKVTC16","ShortName":"SaigonBank","FullName":"Saigon Bank for Industry and Trade - SaigonBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC16|SaigonBank|Saigon Bank for Industry and Trade - SaigonBank","ICON":"BNKVTC16.svg"},{"PAID":"BNKVTC17","ShortName":"Sacombank","FullName":"Saigon Thuong Tin Commercial Joint Stock Bank - Sacombank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC17|Sacombank|Saigon Thuong Tin Commercial Joint Stock Bank - Sacombank","ICON":"BNKVTC17.svg"},{"PAID":"BNKVTC18","ShortName":"VietABank","FullName":"VietNam Asia Commercial Joint Stock Bank - VietABank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC18|VietABank|VietNam Asia Commercial Joint Stock Bank - VietABank","ICON":"BNKVTC18.svg"},{"PAID":"BNKVTC19","ShortName":"VPBank","FullName":"Vietnam Prosperity Joint-Stock Commercial Bank - VPBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC19|VPBank|Vietnam Prosperity Joint-Stock Commercial Bank - VPBank","ICON":"BNKVTC19.svg"},{"PAID":"BNKVTC20","ShortName":"TienPhongBank","FullName":"Tien Phong Commercial Joint Stock Bank - TienPhongBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC20|TienPhongBank|Tien Phong Commercial Joint Stock Bank - TienPhongBank","ICON":"BNKVTC20.svg"},{"PAID":"BNKVTC21","ShortName":"SeaABank","FullName":"Southeast Asia Commercial Joint Stock Bank - SeABank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC21|SeaABank|Southeast Asia Commercial Joint Stock Bank - SeABank","ICON":"BNKVTC21.svg"},{"PAID":"BNKVTC22","ShortName":"PGBank","FullName":"Petrolimex Group Commercial Joint Stock Bank - PGBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC22|PGBank|Petrolimex Group Commercial Joint Stock Bank - PGBank","ICON":"BNKVTC22.svg"},{"PAID":"BNKVTC24","ShortName":"GPBank","FullName":"Global Petro Commercial Joint Stock Bank - GPBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC24|GPBank|Global Petro Commercial Joint Stock Bank - GPBank","ICON":"BNKVTC24.svg"},{"PAID":"BNKVTC25","ShortName":"BACABANK","FullName":"Bac A Commercial Joint Stock Bank - BacABank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC25|BACABANK|Bac A Commercial Joint Stock Bank - BacABank","ICON":"BNKVTC25.svg"},{"PAID":"BNKVTC26","ShortName":"OCB","FullName":"Orient Commercial Joint Stock Bank - OCB","Group":"BANK","CUID":"VND","Keyword":"BNKVTC26|OCB|Orient Commercial Joint Stock Bank - OCB","ICON":"BNKVTC26.svg"},{"PAID":"BNKVTC27","ShortName":"LienVietPostBank","FullName":"Lien Viet Post Joint Stock Commercial Bank - LienVietPostBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC27|LienVietPostBank|Lien Viet Post Joint Stock Commercial Bank - LienVietPostBank","ICON":"BNKVTC27.svg"},{"PAID":"BNKVTC28","ShortName":"ABBANK","FullName":"An Binh Commercial Join Stock Bank - ABBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC28|ABBANK|An Binh Commercial Join Stock Bank - ABBank","ICON":"BNKVTC28.svg"},{"PAID":"BNKVTC29","ShortName":"PVcomBank","FullName":"Vietnam Public Joint Stock Commercial Bank - PVcomBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC29|PVcomBank|Vietnam Public Joint Stock Commercial Bank - PVcomBank","ICON":"BNKVTC29.svg"},{"PAID":"BNKVTC30","ShortName":"BVB","FullName":"Bao Viet Joint Stock Commercial Bank - BaoVietBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC30|BVB|Bao Viet Joint Stock Commercial Bank - BaoVietBank","ICON":"BNKVTC30.svg"},{"PAID":"BNKVTC31","ShortName":"SCBBank","FullName":"Sai Gon Joint Stock Commercial Bank - SCB","Group":"BANK","CUID":"VND","Keyword":"BNKVTC31|SCBBank|Sai Gon Joint Stock Commercial Bank - SCB","ICON":"BNKVTC31.svg"},{"PAID":"BNKVTC32","ShortName":"KienLongBank","FullName":"Kien Long Commercial Joint Stock Bank - Kienlongbank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC32|KienLongBank|Kien Long Commercial Joint Stock Bank - Kienlongbank","ICON":"BNKVTC32.svg"},{"PAID":"BNKVTC33","ShortName":"VRB","FullName":"Vietnam - Russia Joint Venture Bank - VRB","Group":"BANK","CUID":"VND","Keyword":"BNKVTC33|VRB|Vietnam - Russia Joint Venture Bank - VRB","ICON":"BNKVTC33.svg"},{"PAID":"BNKVTC34","ShortName":"PublicBank","FullName":"Public Bank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC34|PublicBank|Public Bank","ICON":"BNKVTC34.svg"}],"Background":""};
-        initFunction(json);
+        /*var json = {"Tpye":"SlectPAID","data":"eyJNU0dfVFlQRSI6IjAxMDAiLCJQQ09ERSI6IjMwMDAwMCIsIkNJRCI6IkMwMDAwMTAwMDAwMDEiLCJDT0lEIjoiQ1AyMDIxMTAxNDE4NDIxOCIsIkNVSUQiOiJWTkQiLCJQQUlEIjoiIiwiQU1PVU5UIjoiMTAwMDAuMDAiLCJSRVRVUk5fVVJMIjoiaHR0cDpcL1wvMjAzLjc0LjIwMy4xODZcL2VzZ3Rlc3RcL1JldHVybl9VUkwucGhwIiwiT1JERVJfVFlQRSI6IkUiLCJNRU1PIjoiIiwiUFJPRFVDVF9OQU1FIjoiTlx1MWVhMXAgMTAwMDAgVk5cdTAxMTAgbXVhIDMwIFZcdTAwZTBuZyIsIlBST0RVQ1RfSUQiOiJkaGxjbl9hX252XzAwMDEwIiwiVVNFUl9BQ0NUSUQiOiIzOCIsIkVTR19JTkZPIjoiVEVTVF9JTmZPIiwiRVJRQyI6Ijd3VnYwbysyajUyNDBTcWh2aU8xWmdFb3RPYz0iLCJFUlFDSUkiOiJaVUZBUUZkZU1UWlRsa0pZTjduUEh4N2dBQzA9In0=","PRODUCT":"Nạp 10000 VNĐ mua 30 Vàng","AMOUNTList":[{"AMOUNT":"10000.00","CUID":"VND"}],"LastSelect":"COPGAT01","PAIDList":[{"PAID":"COPESW01","ShortName":"ESG Wallet","FullName":"ESG Wallet","Group":"WALLET","CUID":"VND","Keyword":"COPESW01|ESG Wallet|ESG Wallet","ICON":"COPESW01.svg"},{"PAID":"TELVTM01","ShortName":"Viettel","FullName":"Viettel","Group":"TELECO","CUID":"VND","Keyword":"TELVTM01|Viettel|Viettel","ICON":"TELVTM01.svg"},{"PAID":"COPGAT01","ShortName":"Gate Card","FullName":"Gate Card","Group":"COIN","CUID":"VND","Keyword":"COPGAT01|Gate Card|Gate Card","ICON":"COPGAT01.svg"},{"PAID":"COPMOM01","ShortName":"MOMO","FullName":"MOMO","Group":"COIN","CUID":"VND","Keyword":"COPMOM01|MOMO|MOMO","ICON":"COPMOM01.svg"},{"PAID":"COPVTC02","ShortName":"VTC Pay","FullName":"VTC Pay","Group":"COIN","CUID":"VND","Keyword":"COPVTC02|VTC Pay|VTC Pay","ICON":"COPVTC02.svg"},{"PAID":"COPVTC04","ShortName":"Viettel Pay","FullName":"Viettel Pay","Group":"COIN","CUID":"VND","Keyword":"COPVTC04|Viettel Pay|Viettel Pay","ICON":"COPVTC04.svg"},{"PAID":"BNKVNP23","ShortName":"NCB","FullName":"National Citizen Bank - NCB","Group":"BANK","CUID":"VND","Keyword":"BNKVNP23|NCB|National Citizen Bank - NCB","ICON":"BNKVNP23.svg"},{"PAID":"BNKVTC01","ShortName":"VietcomBank","FullName":"JSC Bank for Foreign Trade of Vietnam - Vietcombank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC01|VietcomBank|JSC Bank for Foreign Trade of Vietnam - Vietcombank","ICON":"BNKVTC01.svg"},{"PAID":"BNKVTC02","ShortName":"Techcombank","FullName":"Vietnam Technological and Commercial Joint- stock Bank - Techcombank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC02|Techcombank|Vietnam Technological and Commercial Joint- stock Bank - Techcombank","ICON":"BNKVTC02.svg"},{"PAID":"BNKVTC03","ShortName":"MBBank","FullName":"Military Commercial Joint Stock Bank - MBBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC03|MBBank|Military Commercial Joint Stock Bank - MBBank","ICON":"BNKVTC03.svg"},{"PAID":"BNKVTC04","ShortName":"Vietinbank","FullName":"Vietnam Joint Stock Commercial Bank for Industry and Trade - Vietinbank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC04|Vietinbank|Vietnam Joint Stock Commercial Bank for Industry and Trade - Vietinbank","ICON":"BNKVTC04.svg"},{"PAID":"BNKVTC05","ShortName":"Agribank","FullName":"Vietnam Bank for Agriculture and Rural Development - Agribank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC05|Agribank|Vietnam Bank for Agriculture and Rural Development - Agribank","ICON":"BNKVTC05.svg"},{"PAID":"BNKVTC06","ShortName":"DongABank","FullName":"DongA Joint Stock Commercial Bank - DongABank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC06|DongABank|DongA Joint Stock Commercial Bank - DongABank","ICON":"BNKVTC06.svg"},{"PAID":"BNKVTC07","ShortName":"Oceanbank","FullName":"Ocean Commercial One Member Limited Liability Bank - Oceanbank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC07|Oceanbank|Ocean Commercial One Member Limited Liability Bank - Oceanbank","ICON":"BNKVTC07.svg"},{"PAID":"BNKVTC08","ShortName":"BIDV","FullName":"Bank for Investment and Development of Vietnam - BIDV","Group":"BANK","CUID":"VND","Keyword":"BNKVTC08|BIDV|Bank for Investment and Development of Vietnam - BIDV","ICON":"BNKVTC08.svg"},{"PAID":"BNKVTC09","ShortName":"SHB","FullName":"Saigon – Hanoi Commercial Joint Stock Bank - SHB","Group":"BANK","CUID":"VND","Keyword":"BNKVTC09|SHB|Saigon – Hanoi Commercial Joint Stock Bank - SHB","ICON":"BNKVTC09.svg"},{"PAID":"BNKVTC10","ShortName":"VIB","FullName":"Vietnam International Commercial Joint Stock Bank - VIB","Group":"BANK","CUID":"VND","Keyword":"BNKVTC10|VIB|Vietnam International Commercial Joint Stock Bank - VIB","ICON":"BNKVTC10.svg"},{"PAID":"BNKVTC11","ShortName":"MaritimeBank","FullName":"Vietnam Maritime Commercial Joint Stock Bank - MaritimeBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC11|MaritimeBank|Vietnam Maritime Commercial Joint Stock Bank - MaritimeBank","ICON":"BNKVTC11.svg"},{"PAID":"BNKVTC12","ShortName":"Eximbank","FullName":"Vietnam Export Import Commercial Joint Stock Bank - Eximbank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC12|Eximbank|Vietnam Export Import Commercial Joint Stock Bank - Eximbank","ICON":"BNKVTC12.svg"},{"PAID":"BNKVTC13","ShortName":"ACB","FullName":"Asia Commercial Joint Stock Bank - ACB","Group":"BANK","CUID":"VND","Keyword":"BNKVTC13|ACB|Asia Commercial Joint Stock Bank - ACB","ICON":"BNKVTC13.svg"},{"PAID":"BNKVTC14","ShortName":"HDBank","FullName":"Ho Chi Minh City Development Joint Stock Commercial Bank - HDBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC14|HDBank|Ho Chi Minh City Development Joint Stock Commercial Bank - HDBank","ICON":"BNKVTC14.svg"},{"PAID":"BNKVTC15","ShortName":"NamABank","FullName":"Nam A Commercial Joint Stock Bank - NamABank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC15|NamABank|Nam A Commercial Joint Stock Bank - NamABank","ICON":"BNKVTC15.svg"},{"PAID":"BNKVTC16","ShortName":"SaigonBank","FullName":"Saigon Bank for Industry and Trade - SaigonBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC16|SaigonBank|Saigon Bank for Industry and Trade - SaigonBank","ICON":"BNKVTC16.svg"},{"PAID":"BNKVTC17","ShortName":"Sacombank","FullName":"Saigon Thuong Tin Commercial Joint Stock Bank - Sacombank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC17|Sacombank|Saigon Thuong Tin Commercial Joint Stock Bank - Sacombank","ICON":"BNKVTC17.svg"},{"PAID":"BNKVTC18","ShortName":"VietABank","FullName":"VietNam Asia Commercial Joint Stock Bank - VietABank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC18|VietABank|VietNam Asia Commercial Joint Stock Bank - VietABank","ICON":"BNKVTC18.svg"},{"PAID":"BNKVTC19","ShortName":"VPBank","FullName":"Vietnam Prosperity Joint-Stock Commercial Bank - VPBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC19|VPBank|Vietnam Prosperity Joint-Stock Commercial Bank - VPBank","ICON":"BNKVTC19.svg"},{"PAID":"BNKVTC20","ShortName":"TienPhongBank","FullName":"Tien Phong Commercial Joint Stock Bank - TienPhongBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC20|TienPhongBank|Tien Phong Commercial Joint Stock Bank - TienPhongBank","ICON":"BNKVTC20.svg"},{"PAID":"BNKVTC21","ShortName":"SeaABank","FullName":"Southeast Asia Commercial Joint Stock Bank - SeABank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC21|SeaABank|Southeast Asia Commercial Joint Stock Bank - SeABank","ICON":"BNKVTC21.svg"},{"PAID":"BNKVTC22","ShortName":"PGBank","FullName":"Petrolimex Group Commercial Joint Stock Bank - PGBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC22|PGBank|Petrolimex Group Commercial Joint Stock Bank - PGBank","ICON":"BNKVTC22.svg"},{"PAID":"BNKVTC24","ShortName":"GPBank","FullName":"Global Petro Commercial Joint Stock Bank - GPBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC24|GPBank|Global Petro Commercial Joint Stock Bank - GPBank","ICON":"BNKVTC24.svg"},{"PAID":"BNKVTC25","ShortName":"BACABANK","FullName":"Bac A Commercial Joint Stock Bank - BacABank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC25|BACABANK|Bac A Commercial Joint Stock Bank - BacABank","ICON":"BNKVTC25.svg"},{"PAID":"BNKVTC26","ShortName":"OCB","FullName":"Orient Commercial Joint Stock Bank - OCB","Group":"BANK","CUID":"VND","Keyword":"BNKVTC26|OCB|Orient Commercial Joint Stock Bank - OCB","ICON":"BNKVTC26.svg"},{"PAID":"BNKVTC27","ShortName":"LienVietPostBank","FullName":"Lien Viet Post Joint Stock Commercial Bank - LienVietPostBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC27|LienVietPostBank|Lien Viet Post Joint Stock Commercial Bank - LienVietPostBank","ICON":"BNKVTC27.svg"},{"PAID":"BNKVTC28","ShortName":"ABBANK","FullName":"An Binh Commercial Join Stock Bank - ABBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC28|ABBANK|An Binh Commercial Join Stock Bank - ABBank","ICON":"BNKVTC28.svg"},{"PAID":"BNKVTC29","ShortName":"PVcomBank","FullName":"Vietnam Public Joint Stock Commercial Bank - PVcomBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC29|PVcomBank|Vietnam Public Joint Stock Commercial Bank - PVcomBank","ICON":"BNKVTC29.svg"},{"PAID":"BNKVTC30","ShortName":"BVB","FullName":"Bao Viet Joint Stock Commercial Bank - BaoVietBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC30|BVB|Bao Viet Joint Stock Commercial Bank - BaoVietBank","ICON":"BNKVTC30.svg"},{"PAID":"BNKVTC31","ShortName":"SCBBank","FullName":"Sai Gon Joint Stock Commercial Bank - SCB","Group":"BANK","CUID":"VND","Keyword":"BNKVTC31|SCBBank|Sai Gon Joint Stock Commercial Bank - SCB","ICON":"BNKVTC31.svg"},{"PAID":"BNKVTC32","ShortName":"KienLongBank","FullName":"Kien Long Commercial Joint Stock Bank - Kienlongbank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC32|KienLongBank|Kien Long Commercial Joint Stock Bank - Kienlongbank","ICON":"BNKVTC32.svg"},{"PAID":"BNKVTC33","ShortName":"VRB","FullName":"Vietnam - Russia Joint Venture Bank - VRB","Group":"BANK","CUID":"VND","Keyword":"BNKVTC33|VRB|Vietnam - Russia Joint Venture Bank - VRB","ICON":"BNKVTC33.svg"},{"PAID":"BNKVTC34","ShortName":"PublicBank","FullName":"Public Bank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC34|PublicBank|Public Bank","ICON":"BNKVTC34.svg"}],"Background":""};
+        initFunction(json);*/
         $('.mt-item').on("click", function() {
             var _this = $(this);
             var paid = _this.data('paid');
             $('.mt-item').removeClass('selected');
             _this.addClass('selected');
+            if (paid == 'COPGAT01'){
+                $('.card-input-container').css('height','100%');
+            }
             $('#f_SPAID').val(paid);
+        });
+        $('.close_form_card').on("click", function() {
+            $('.card-input-container').css('height','0');
         });
         $(".search").on("keyup", function() {
             var _this = $(this);
@@ -439,11 +469,24 @@
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
+        $("#card_serial").on("keyup", function() {
+            $('#f_Serial').val($(this).val());
+        });
+        $("#card_pincode").on("keyup", function() {
+            $('#f_PinCode').val($(this).val());
+        });
         $('#confirm').click(function () {
             var _f_SPAID = $('#f_SPAID').val();
+            var _f_Serial = $('#f_Serial').val();
+            var _f_PinCode = $('#f_PinCode').val();
             if (!_f_SPAID){
                 alert('Vui lòng chọn phương thức thanh toán!');
                 return false;
+            }else{
+                if(_f_Serial == '' || _f_PinCode == ''){
+                    alert('Vui lòng nhập thông tin thẻ nạp!');
+                    return false;
+                }
             }
         });
     });
@@ -511,7 +554,11 @@
                 html += renderItem(data_array[i]);
             }
         }
-        $(ele).html(html_lastSelect+html);
+        if (ele == '#card_list'){
+            $(ele).html(html_lastSelect+html+renderCardInput());
+        }else{
+            $(ele).html(html_lastSelect+html);
+        }
     }
     function renderTabItem(group, selected = false){
         var htmlTab = '';
@@ -556,6 +603,27 @@
             '</div>' +
             '</div>';
         return html_item;
+    }
+    function renderCardInput() {
+        var html_card_input = '<div class="card-input-container">' +
+            '<div class="form_card">' +
+            '<a href="javascript:void(0)" class="close_form_card"><< Quay lại' +
+            '</a>' +
+            '<div class="input-group mb-3 mt-3">' +
+            '<div class="input-group-prepend">' +
+            '<span class="input-group-text" id="serial">Serial</span>' +
+            '</div>' +
+            '<input type="text" class="form-control" id="card_serial" placeholder="Nhập serial thẻ" aria-label="serial" aria-describedby="serial">' +
+            '</div>' +
+            '<div class="input-group mb-3">' +
+            '<div class="input-group-prepend">' +
+            '<span class="input-group-text" id="code">Mã thẻ</span>' +
+            '</div>' +
+            '<input type="text" class="form-control" id="card_pincode" placeholder="Nhập mã thẻ" aria-label="code" aria-describedby="code">' +
+            '</div>' +
+            '</a>' +
+            '</div>';
+        return html_card_input;
     }
     function getLastSelect(json) {
         var lastSelect = $(json.PAIDList).filter(function (i,n){

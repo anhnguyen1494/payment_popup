@@ -101,6 +101,7 @@
             height: 270px;
             overflow-y: auto;
             margin-top: 3vw;
+            position: relative;
         }
         .mt-item{
             width: 24%;
@@ -184,6 +185,29 @@
         .c_detail-list .detail-name{
             display: block;
             width: 100%;
+        }
+        .card-input-container{
+            width: 100%;
+            height: 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: #ffffff;
+            transition:  height 0.5s ease-in-out;
+            overflow: hidden;
+        }
+        .form_card{
+            max-width: 450px;
+            margin: 5% auto 0;
+            width: 100%;
+        }
+        .form_card .input-group-text{
+            min-width: 85px;
+            background: #ffeed7;
+        }
+        .form_card input{
+            color: black;
+            font-weight: 600;
         }
         @media only screen and (max-width: 900px) {
             .tabs-left>li>a {
@@ -376,8 +400,8 @@
                             <form action="" method="post" target="_self" class="form-payment">
                                 <input type="hidden" name="SPAID" value="" id="f_SPAID">
                                 <input type="hidden" name="data" value="" id="f_data">
-                                <input type="hidden" name="GSERIAL" value="CA00000000">
-                                <input type="hidden" name="GPIN" value="1111111111">
+                                <input type="hidden" name="Serial" value="" id="f_Serial">
+                                <input type="hidden" name="PinCode" value="" id="f_PinCode">
                                 <button id="confirm" type="submit" value="Submit">Tiếp tục</button>
                                 <button >Huỷ bỏ</button>
                             </form>
@@ -428,7 +452,13 @@
             var paid = _this.data('paid');
             $('.mt-item').removeClass('selected');
             _this.addClass('selected');
+            if (paid == 'COPGAT01'){
+                $('.card-input-container').css('height','100%');
+            }
             $('#f_SPAID').val(paid);
+        });
+        $('.close_form_card').on("click", function() {
+            $('.card-input-container').css('height','0');
         });
         $(".search").on("keyup", function() {
             var _this = $(this);
@@ -439,11 +469,24 @@
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
+        $("#card_serial").on("keyup", function() {
+            $('#f_Serial').val($(this).val());
+        });
+        $("#card_pincode").on("keyup", function() {
+            $('#f_PinCode').val($(this).val());
+        });
         $('#confirm').click(function () {
             var _f_SPAID = $('#f_SPAID').val();
+            var _f_Serial = $('#f_Serial').val();
+            var _f_PinCode = $('#f_PinCode').val();
             if (!_f_SPAID){
                 alert('Vui lòng chọn phương thức thanh toán!');
                 return false;
+            }else{
+                if(_f_Serial == '' || _f_PinCode == ''){
+                    alert('Vui lòng nhập thông tin thẻ nạp!');
+                    return false;
+                }
             }
         });
     });
@@ -511,7 +554,11 @@
                 html += renderItem(data_array[i]);
             }
         }
-        $(ele).html(html_lastSelect+html);
+        if (ele == '#card_list'){
+            $(ele).html(html_lastSelect+html+renderCardInput());
+        }else{
+            $(ele).html(html_lastSelect+html);
+        }
     }
     function renderTabItem(group, selected = false){
         var htmlTab = '';
@@ -556,6 +603,27 @@
             '</div>' +
             '</div>';
         return html_item;
+    }
+    function renderCardInput() {
+        var html_card_input = '<div class="card-input-container">' +
+            '<div class="form_card">' +
+            '<a href="javascript:void(0)" class="close_form_card"><< Quay lại' +
+            '</a>' +
+            '<div class="input-group mb-3 mt-3">' +
+            '<div class="input-group-prepend">' +
+            '<span class="input-group-text" id="serial">Serial</span>' +
+            '</div>' +
+            '<input type="text" class="form-control" id="card_serial" placeholder="Nhập serial thẻ" aria-label="serial" aria-describedby="serial">' +
+            '</div>' +
+            '<div class="input-group mb-3">' +
+            '<div class="input-group-prepend">' +
+            '<span class="input-group-text" id="code">Mã thẻ</span>' +
+            '</div>' +
+            '<input type="text" class="form-control" id="card_pincode" placeholder="Nhập mã thẻ" aria-label="code" aria-describedby="code">' +
+            '</div>' +
+            '</a>' +
+            '</div>';
+        return html_card_input;
     }
     function getLastSelect(json) {
         var lastSelect = $(json.PAIDList).filter(function (i,n){
