@@ -305,7 +305,7 @@
                     </div>
                     <div class="col-xs-10 col-10 pr-0 pl-0 tab_container">
                         <div class="tab-content" id="TabContent">
-                            <div class="tab-pane fade show active" id="sms" role="tabpanel" aria-labelledby="sms-tab">
+                            <div class="tab-pane" id="sms" role="tabpanel" aria-labelledby="sms-tab">
                                 <div class="c_method">
                                     <h2 class="text-center">SMS</h2>
                                     <hr>
@@ -516,20 +516,26 @@
     function renderTabItem(group, selected = false){
         var htmlTab = '';
         var classActive = '';
+        var classTabContentActive = '';
         if (selected){
             classActive = 'active';
+            classTabContentActive = 'fade show active';
         }
         if(group == "TELECO"){
             htmlTab += getHtmlTab('sms', 'SMS', selected, classActive);
+            $('#sms').addClass(classTabContentActive);
         }
         if (group ==  "COIN"){
             htmlTab += getHtmlTab('card', 'Thẻ cào', selected, classActive);
+            $('#card').addClass(classTabContentActive);
         }
         if (group == "BANK"){
             htmlTab += getHtmlTab('bank', 'Ngân hàng', selected, classActive);
+            $('#bank').addClass(classTabContentActive);
         }
         if (group == "WALLET"){
             htmlTab += getHtmlTab('wallet', 'Ví điện tử', selected, classActive);
+            $('#wallet').addClass(classTabContentActive);
         }
         return htmlTab;
     }
