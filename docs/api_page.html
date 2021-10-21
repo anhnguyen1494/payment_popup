@@ -483,7 +483,7 @@
                 alert('Vui lòng chọn phương thức thanh toán!');
                 return false;
             }else{
-                if(_f_Serial == '' || _f_PinCode == ''){
+                if((_f_Serial == '' || _f_PinCode == '') && _f_SPAID === 'COPGAT01'){
                     alert('Vui lòng nhập thông tin thẻ nạp!');
                     return false;
                 }
