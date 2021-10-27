@@ -275,7 +275,13 @@
             background: #28a745 !important;
             text-decoration: none;
         }
-
+        #confirm img{
+            width: 21px;
+            display: none;
+        }
+        #confirm.loading img{
+            display: inline-block;
+        }
         @media only screen and (max-width: 900px) {
             .tabs-left > li > a {
                 font-size: 14px;
@@ -638,7 +644,7 @@
                                 <input type="hidden" name="data" value="" id="f_data">
                                 <input type="hidden" name="Serial" value="" id="f_Serial">
                                 <input type="hidden" name="PinCode" value="" id="f_PinCode">
-                                <button id="confirm" type="submit" value="Submit">Tiếp tục</button>
+                                <button id="confirm" type="submit" value="Submit">Tiếp tục <img src="https://cdn-files.esgame.vn/payment/icon/loading.gif" alt=""></button>
                                 <button id="btn-close">Huỷ bỏ</button>
                             </form>
                         </div>
@@ -713,15 +719,22 @@
             $('#f_PinCode').val($(this).val());
         });
         $('#confirm').click(function () {
+            var _this = $(this);
             var _f_SPAID = $('#f_SPAID').val();
             var _f_Serial = $('#f_Serial').val();
             var _f_PinCode = $('#f_PinCode').val();
+            _this.prop('disabled', true);
+            _this.addClass('loading');
             if (!_f_SPAID) {
                 alert('Vui lòng chọn phương thức thanh toán!');
+                _this.prop('disabled', false);
+                _this.removeClass('loading');
                 return false;
             } else {
                 if ((_f_Serial == '' || _f_PinCode == '') && _f_SPAID === 'COPGAT01') {
                     alert('Vui lòng nhập thông tin thẻ nạp!');
+                    _this.prop('disabled', false);
+                    _this.removeClass('loading');
                     return false;
                 }
             }
