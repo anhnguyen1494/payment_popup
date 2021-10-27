@@ -10,15 +10,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
         }
-        body{
+
+        body {
             background: #f4f4f4;
         }
-        .p_container{
+
+        .p_container {
             width: 100%;
             height: 502px;
             padding-right: 15px;
@@ -27,83 +29,100 @@
             margin-left: auto;
             max-width: 1000px;
         }
-        .tabs-left{
+
+        .tabs-left {
             border-bottom: none;
             display: block;
         }
+
         .tabs-left {
             border-right: 1px solid #ddd;
         }
-        .tabs-left>li {
+
+        .tabs-left > li {
             float: none;
             margin-bottom: 2px;
             display: block;
         }
-        .tabs-left>li {
+
+        .tabs-left > li {
             margin-right: -1px;
         }
-        .tabs-left>li.active>a,
-        .tabs-left>li.active>a:hover,
-        .tabs-left>li.active>a:focus {
+
+        .tabs-left > li.active > a,
+        .tabs-left > li.active > a:hover,
+        .tabs-left > li.active > a:focus {
             border-bottom-color: #ddd;
             border-right-color: transparent;
         }
-        .tabs-left>li>a {
-            display:block;
+
+        .tabs-left > li > a {
+            display: block;
             background: #e4e4e4;
             padding: 0 15px;
             color: black;
             font-weight: 500;
         }
-        .tabs-left>li>a:hover{
+
+        .tabs-left > li > a:hover {
             text-decoration: none;
             background: white;
         }
-        .tabs-left>li>a.active{
+
+        .tabs-left > li > a.active {
             background: white;
         }
-        .tabs-left li a img{
+
+        .tabs-left li a img {
             display: block;
             max-width: 100%;
             max-height: 100px;
             margin: 0 auto;
             border-bottom: 1px solid #9f9f9f;
         }
-        .tabs-left li a span{
+
+        .tabs-left li a span {
 
         }
 
-        .c_method,.c_detail{
+        .c_method, .c_detail {
             background: #ffffff;
             height: 502px;
             padding: 0 10px;
         }
-        hr{
+
+        hr {
             width: 40px;
             border-width: 3px;
             border-color: #f2981b;
             margin: 1rem auto;
         }
-        .c-search{
+
+        .c-search {
             width: 80%;
             margin: 0 auto;
         }
-        .c-search .input-group-text{
+
+        .c-search .input-group-text {
             background: #e5e5e5;
         }
-        .c-search .form-control:focus{
+
+        .c-search .form-control:focus {
             box-shadow: none;
         }
-        .icon-search{
+
+        .icon-search {
             width: 20px;
         }
-        .c_list{
+
+        .c_list {
             height: 270px;
             overflow-y: auto;
             margin-top: 3vw;
             position: relative;
         }
-        .mt-item{
+
+        .mt-item {
             width: 24%;
             float: left;
             margin: 0 0.5% 0.5rem;
@@ -113,54 +132,65 @@
             border: 2px solid transparent;
             cursor: pointer;
         }
-        .mt-item:hover, .mt-item.selected{
+
+        .mt-item:hover, .mt-item.selected {
             border: 2px solid #f2981b;
         }
-        .mt-item__icon{
+
+        .mt-item__icon {
             height: 60px;
             border-bottom: 1px solid #d3d3d3;
         }
-        .mt-item__icon img{
+
+        .mt-item__icon img {
             max-width: 80%;
             max-height: 80%;
         }
-        .mt__name{
+
+        .mt__name {
             font-size: 12px;
-            height: 54px;
+            height: 20px;
             overflow: hidden;
             display: -webkit-box;
             text-overflow: ellipsis;
             -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 1;
             font-weight: 500;
         }
-        .c_detail-list div{
+
+        .c_detail-list div {
             margin-bottom: 15px;
             border-bottom: 1px solid #7d7d7d;
             font-weight: 500;
             font-size: 12px;
             word-break: break-all;
         }
-        .c_detail-list .detail-name{
+
+        .c_detail-list .detail-name {
             color: #878787;
         }
-        .c_detail-list .detail-value{
+
+        .c_detail-list .detail-value {
             font-weight: 500;
         }
-        .mt__keyword{
+
+        .mt__keyword {
             display: none;
         }
+
         #TabContent {
             position: relative;
         }
-        .form-payment{
+
+        .form-payment {
             display: block;
             width: 100%;
             position: absolute;
             bottom: 20px;
             text-align: center;
         }
-        .form-payment button{
+
+        .form-payment button {
             padding: 3px 15px;
             border-radius: 5px;
             border: 1px solid #f2981b;
@@ -169,58 +199,69 @@
             background: white;
             cursor: pointer;
         }
-        .form-payment #confirm{
+
+        .form-payment #confirm {
             background: #f2981b;
             color: white;
         }
-        .form-payment button:hover{
-            background: gray!important;
+
+        .form-payment button:hover {
+            background: gray !important;
             color: white;
         }
-        .form-payment #confirm:hover{
-            background: #28a745!important;
+
+        .form-payment #confirm:hover {
+            background: #28a745 !important;
         }
-        .c_detail-list div{
-            display: block!important;
+
+        .c_detail-list div {
+            display: block !important;
         }
-        .c_detail-list .detail-name{
+
+        .c_detail-list .detail-name {
             display: block;
             width: 100%;
         }
-        .card-input-container{
+
+        .card-input-container {
             width: 100%;
             height: 0;
             position: absolute;
             bottom: 0;
             left: 0;
             background: #ffffff;
-            transition:  height 0.5s ease-in-out;
+            transition: height 0.5s ease-in-out;
             overflow: hidden;
         }
-        .form_card{
+
+        .form_card {
             max-width: 450px;
             margin: 5% auto 0;
             width: 100%;
         }
-        .form_card .input-group-text{
+
+        .form_card .input-group-text {
             min-width: 85px;
             background: #ffeed7;
         }
-        .form_card input{
+
+        .form_card input {
             color: black;
             font-weight: 600;
         }
-        .form_sms{
+
+        .form_sms {
             margin: 10% auto 0;
             width: 100%;
             text-align: center;
         }
 
-        .form_sms .sms-content{
+        .form_sms .sms-content {
             color: black;
             font-weight: 600;
         }
-        .form_sms .submit{
+
+        .form_sms .submit {
             background: #f2981b;
             border: 1px solid #f2981b;
             border-radius: 5px;
@@ -229,115 +270,278 @@
             padding: 3px 15px;
             cursor: pointer;
         }
-        .form_sms .submit:hover{
-            background: #28a745!important;
+
+        .form_sms .submit:hover {
+            background: #28a745 !important;
             text-decoration: none;
         }
+
         @media only screen and (max-width: 900px) {
-            .tabs-left>li>a {
+            .tabs-left > li > a {
                 font-size: 14px;
             }
-            .c_method h2,.c_detail h2{
+
+            .c_method h2, .c_detail h2 {
                 font-size: 24px;
             }
         }
+
         @media only screen and (max-width: 768px) {
-            .c_detail-list div{
-                display: block!important;
+            .c_detail-list div {
+                display: block !important;
             }
-            .c_detail-list .detail-name{
+
+            .c_detail-list .detail-name {
                 display: block;
                 width: 100%;
             }
+
             .mt-item {
                 width: 31%;
             }
-            .mt__name{
+
+            .mt__name {
                 font-size: 10px;
-                height: 48px;
+                height: 15px;
             }
         }
-        @media only screen and (max-width: 600px) {
-            .p_container-row{
+
+        @media (min-height: 350px) and (max-width: 600px) {
+            .p_container {
+                height: 100vh;
+                overflow-x: hidden;
+            }
+
+            .p_container-row {
                 display: flex;
                 flex-direction: column-reverse;
             }
-            .p_container-row-detail{
-                width: 100%!important;
-                max-width: 100%!important;
+
+            .p_container-row-detail {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 5px;
+            }
+
+            .c_method, .c_detail {
+                padding: 5px 5px 40px;
+                height: auto;
+            }
+
+            .c_method h2, .c_detail h2 {
+                font-size: 12px;
+            }
+            hr {
+                border-width: 2px;
+                margin: 7px auto;
             }
             .mt-item {
                 width: 47%;
             }
             .mt__name {
-                font-size: 12px;
-                height: 52px;
+                font-size: 10px;
+                height: 15px;
             }
-            .c_detail{
+            .c_detail {
                 height: auto;
-                padding: 15px;
-                border-radius: 15px;
-                margin-top: 15px;
-                margin-bottom: 15px;
+                padding: 5px;
+                border-radius: 5px;
+                margin-top: 0;
+                margin-bottom: 0;
             }
-            .c_detail-list{
-                margin-top: 1rem!important;
+            .c_detail-list {
+                margin-top: 7px !important;
             }
-            .c_detail-list div{
-                display: flex!important;
+            .c_method .form-control, .c_method .input-group-prepend {
+                height: 2rem;
+                font-size: 12px;
+            }
+            .c-search {
+                width: 90%;
+                margin-bottom: 0.5rem !important;
+            }
+            .icon-search {
+                width: 16px;
+            }
+
+            .c_detail-list div {
+                display: flex !important;
                 margin-bottom: 5px;
+                font-size: 10px;
             }
+
             .c_detail-list .detail-name {
                 display: inline-block;
                 width: auto;
             }
-            .tab_container{
-                width: 100%!important;
-                max-width: 100%!important;
+
+            .tab_container {
+                width: 100% !important;
+                max-width: 100% !important;
                 flex: 0 0 100%;
-                padding-right: 15px!important;
-                padding-left: 15px!important;
+                padding-right: 15px !important;
+                padding-left: 15px !important;
             }
-            .tabs-left{
+
+            .tabs-left {
                 display: flex;
                 /*justify-content: space-between;*/
                 border-right: none;
             }
-            .tabs-left>li {
+
+            .tabs-left > li {
                 max-width: 24%;
                 margin-bottom: 0;
             }
-            .tabs-left>li + li{
+
+            .tabs-left > li + li {
                 margin-left: 1.6%;
             }
-            .tabs-left>li>a {
+
+            .tabs-left > li > a {
                 font-size: 6px;
-                min-height: 50px;
+                min-height: auto;
                 height: 100%;
+                padding: 5px;
+            }
+
+            .c_list {
+                height: 30vh;
+            }
+
+            .mt-item {
+                margin: 0 0.5% 0.3rem;
+            }
+
+            .mt-item__icon {
+                padding: 5px;
+                height: auto;
+            }
+
+            .mt-item__icon img {
+                max-width: 50%;
+                max-height: 50%;
+            }
+
+            .form-payment {
+                bottom: 5px;
+            }
+
+            .form-payment button {
+                font-size: 12px;
+            }
+            .form_card {
+                width: 90%;
+                margin-top: 0;
+                font-size: 12px;
+            }
+            .form_card .input-group {
+                margin-top: 5px !important;
+                margin-bottom: 5px !important;
+            }
+            .form_card .input-group-text{
+                min-width: 65px;
+                font-size: 12px;
             }
         }
-        @media only screen and (max-width: 500px) {
-            /*.c_list{*/
-            /*height: auto;*/
-            /*overflow-y: inherit;*/
-            /*}*/
-            .c_method {
-                height: 450px;
+
+        @media only screen and (max-height: 300px) {
+            .p_container {
+                height: 100vh;
             }
-            .mt-item__icon{
-                height: 40px;
+
+            .c_method, .c_detail {
+                height: 100vh;
+                padding: 5px 10px;
             }
-            .mt__name{
-                height: 35px;
+
+            .tabs-left > li > a {
+                padding: 0 5px;
+            }
+
+            .tabs-left li a img {
+                max-width: 60%;
+                max-height: 35px;
+            }
+
+            .tabs-left > li > a {
+                font-size: 10px;
+            }
+
+            .c_method h2, .c_detail h2 {
+                font-size: 12px;
+            }
+
+            hr {
+                border-width: 2px;
+                margin: 7px auto;
+            }
+
+            .c_method .form-control, .c_method .input-group-prepend {
+                height: 2rem;
+            }
+
+            .c-search {
+                margin-bottom: 0.5rem !important;
+            }
+
+            .icon-search {
+                width: 16px;
+            }
+
+            .mt-item {
+                margin: 0 0.5% 0.3rem;
+            }
+
+            .mt-item__icon {
+                padding: 5px;
+                height: auto;
+            }
+
+            .mt-item__icon img {
+                max-width: 50%;
+                max-height: 50%;
+            }
+
+            .c_list {
+                margin-top: 0;
+                height: 50vh;
+            }
+
+            .form-payment {
+                bottom: 5px;
+            }
+
+            .form-payment button {
+                font-size: 12px;
+            }
+
+            .c_detail-list {
+                margin-top: 5px !important;
+            }
+
+            .c_detail-list div {
+                font-size: 10px;
+            }
+
+            .form_card {
+                width: 90%;
+                margin-top: 0;
+                font-size: 12px;
+            }
+
+            .form_card .input-group {
+                margin-top: 5px !important;
+                margin-bottom: 5px !important;
             }
         }
     </style>
     <script>
         function initFunction(jsonObj) {
-            if (jsonObj.Tpye === 'SlectPAID'){
+            if (jsonObj.Tpye === 'SlectPAID') {
                 renderTabList(jsonObj);
                 renderTabContentList(jsonObj);
-            }else if (jsonObj.Tpye === 'ShowSMS') {
+            } else if (jsonObj.Tpye === 'ShowSMS') {
                 renderSmsContent(jsonObj);
             }
             renderOrderInfo(jsonObj);
@@ -398,10 +602,12 @@
                                     <div class="input-group mb-3 c-search">
                                         <div class="input-group-prepend">
                                                 <span class="input-group-text">
-                                                    <img src="https://cdn-files.esgame.vn/payment/icon/icon-search.png" alt="" class="icon-search">
+                                                    <img src="https://cdn-files.esgame.vn/payment/icon/icon-search.png"
+                                                         alt="" class="icon-search">
                                                 </span>
                                         </div>
-                                        <input type="text" class="form-control search" data-searchtab="#bank_list"  name="search" placeholder="Tìm kiếm">
+                                        <input type="text" class="form-control search" data-searchtab="#bank_list"
+                                               name="search" placeholder="Tìm kiếm">
                                     </div>
                                     <div class="c_list" id="bank_list">
 
@@ -415,10 +621,12 @@
                                     <div class="input-group mb-3 c-search">
                                         <div class="input-group-prepend">
                                                 <span class="input-group-text">
-                                                    <img src="https://cdn-files.esgame.vn/payment/icon/icon-search.png" alt="" class="icon-search">
+                                                    <img src="https://cdn-files.esgame.vn/payment/icon/icon-search.png"
+                                                         alt="" class="icon-search">
                                                 </span>
                                         </div>
-                                        <input type="text" class="form-control search" data-searchtab="#wallet_list" name="search" placeholder="Tìm kiếm">
+                                        <input type="text" class="form-control search" data-searchtab="#wallet_list"
+                                               name="search" placeholder="Tìm kiếm">
                                     </div>
                                     <div class="c_list" id="wallet_list">
 
@@ -431,7 +639,7 @@
                                 <input type="hidden" name="Serial" value="" id="f_Serial">
                                 <input type="hidden" name="PinCode" value="" id="f_PinCode">
                                 <button id="confirm" type="submit" value="Submit">Tiếp tục</button>
-                                <button >Huỷ bỏ</button>
+                                <button id="btn-close">Huỷ bỏ</button>
                             </form>
                         </div>
                     </div>
@@ -473,163 +681,172 @@
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('.mt-item').on("click", function() {
+        // var json = {"Tpye":"SlectPAID","data":"eyJNU0dfVFlQRSI6IjAxMDAiLCJQQ09ERSI6IjMwMDAwMCIsIkNJRCI6IkMwMDAwMTAwMDAwMDEiLCJDT0lEIjoiQ1AyMDIxMTAyMTIyMTkxNSIsIkNVSUQiOiJWTkQiLCJQQUlEIjoiIiwiQU1PVU5UIjoiMTAwMDAuMDAiLCJSRVRVUk5fVVJMIjoiaHR0cDpcL1wvMjAzLjc0LjIwMy4xODZcL2VzZ3Rlc3RcL1JldHVybl9VUkwucGhwIiwiT1JERVJfVFlQRSI6IkUiLCJNRU1PIjoiIiwiUFJPRFVDVF9OQU1FIjoiTlx1MWVhMXAgMTAwMDAgVk5cdTAxMTAgbXVhIDMwIFZcdTAwZTBuZyIsIlBST0RVQ1RfSUQiOiJkaGxjbl9hX252XzAwMDEwIiwiVVNFUl9BQ0NUSUQiOiIzOCIsIkVTR19JTkZPIjoiVEVTVF9JTmZPIiwiRVJRQyI6IldOamxlSjB3dkVudnlCYlNmOGlvNWlQVVNcL2M9IiwiRVJRQ0lJIjoid3lsWVVFYzBBeUoyNk1lMVBEUjI4czJibjRZPSJ9","COID":"C000010000001CP20211021221915","PRODUCT":"Nạp 10000 VNĐ mua 30 Vàng","AMOUNTList":[{"AMOUNT":"10000.00","CUID":"VND"}],"LastSelect":"COPGAT01","PAIDList":[{"PAID":"COPESW01","ShortName":"ESG Wallet","FullName":"ESG Wallet","Group":"WALLET","CUID":"VND","Keyword":"COPESW01|ESG Wallet|ESG Wallet","ICON":"COPESW01.svg"},{"PAID":"TELVTM01","ShortName":"Viettel","FullName":"Viettel","Group":"TELECO","CUID":"VND","Keyword":"TELVTM01|Viettel|Viettel","ICON":"TELVTM01.svg"},{"PAID":"COPGAT01","ShortName":"Gate Card","FullName":"Gate Card","Group":"COIN","CUID":"VND","Keyword":"COPGAT01|Gate Card|Gate Card","ICON":"COPGAT01.svg"},{"PAID":"COPMOM01","ShortName":"MOMO","FullName":"MOMO","Group":"COIN","CUID":"VND","Keyword":"COPMOM01|MOMO|MOMO","ICON":"COPMOM01.svg"},{"PAID":"COPVTC02","ShortName":"VTC Pay","FullName":"VTC Pay","Group":"COIN","CUID":"VND","Keyword":"COPVTC02|VTC Pay|VTC Pay","ICON":"COPVTC02.svg"},{"PAID":"COPVTC04","ShortName":"Viettel Pay","FullName":"Viettel Pay","Group":"COIN","CUID":"VND","Keyword":"COPVTC04|Viettel Pay|Viettel Pay","ICON":"COPVTC04.svg"},{"PAID":"BNKVNP23","ShortName":"NCB","FullName":"National Citizen Bank - NCB","Group":"BANK","CUID":"VND","Keyword":"BNKVNP23|NCB|National Citizen Bank - NCB","ICON":"BNKVNP23.svg"},{"PAID":"BNKVTC01","ShortName":"VietcomBank","FullName":"JSC Bank for Foreign Trade of Vietnam - Vietcombank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC01|VietcomBank|JSC Bank for Foreign Trade of Vietnam - Vietcombank","ICON":"BNKVTC01.svg"},{"PAID":"BNKVTC02","ShortName":"Techcombank","FullName":"Vietnam Technological and Commercial Joint- stock Bank - Techcombank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC02|Techcombank|Vietnam Technological and Commercial Joint- stock Bank - Techcombank","ICON":"BNKVTC02.svg"},{"PAID":"BNKVTC03","ShortName":"MBBank","FullName":"Military Commercial Joint Stock Bank - MBBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC03|MBBank|Military Commercial Joint Stock Bank - MBBank","ICON":"BNKVTC03.svg"},{"PAID":"BNKVTC04","ShortName":"Vietinbank","FullName":"Vietnam Joint Stock Commercial Bank for Industry and Trade - Vietinbank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC04|Vietinbank|Vietnam Joint Stock Commercial Bank for Industry and Trade - Vietinbank","ICON":"BNKVTC04.svg"},{"PAID":"BNKVTC05","ShortName":"Agribank","FullName":"Vietnam Bank for Agriculture and Rural Development - Agribank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC05|Agribank|Vietnam Bank for Agriculture and Rural Development - Agribank","ICON":"BNKVTC05.svg"},{"PAID":"BNKVTC06","ShortName":"DongABank","FullName":"DongA Joint Stock Commercial Bank - DongABank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC06|DongABank|DongA Joint Stock Commercial Bank - DongABank","ICON":"BNKVTC06.svg"},{"PAID":"BNKVTC07","ShortName":"Oceanbank","FullName":"Ocean Commercial One Member Limited Liability Bank - Oceanbank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC07|Oceanbank|Ocean Commercial One Member Limited Liability Bank - Oceanbank","ICON":"BNKVTC07.svg"},{"PAID":"BNKVTC08","ShortName":"BIDV","FullName":"Bank for Investment and Development of Vietnam - BIDV","Group":"BANK","CUID":"VND","Keyword":"BNKVTC08|BIDV|Bank for Investment and Development of Vietnam - BIDV","ICON":"BNKVTC08.svg"},{"PAID":"BNKVTC09","ShortName":"SHB","FullName":"Saigon – Hanoi Commercial Joint Stock Bank - SHB","Group":"BANK","CUID":"VND","Keyword":"BNKVTC09|SHB|Saigon – Hanoi Commercial Joint Stock Bank - SHB","ICON":"BNKVTC09.svg"},{"PAID":"BNKVTC10","ShortName":"VIB","FullName":"Vietnam International Commercial Joint Stock Bank - VIB","Group":"BANK","CUID":"VND","Keyword":"BNKVTC10|VIB|Vietnam International Commercial Joint Stock Bank - VIB","ICON":"BNKVTC10.svg"},{"PAID":"BNKVTC11","ShortName":"MaritimeBank","FullName":"Vietnam Maritime Commercial Joint Stock Bank - MaritimeBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC11|MaritimeBank|Vietnam Maritime Commercial Joint Stock Bank - MaritimeBank","ICON":"BNKVTC11.svg"},{"PAID":"BNKVTC12","ShortName":"Eximbank","FullName":"Vietnam Export Import Commercial Joint Stock Bank - Eximbank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC12|Eximbank|Vietnam Export Import Commercial Joint Stock Bank - Eximbank","ICON":"BNKVTC12.svg"},{"PAID":"BNKVTC13","ShortName":"ACB","FullName":"Asia Commercial Joint Stock Bank - ACB","Group":"BANK","CUID":"VND","Keyword":"BNKVTC13|ACB|Asia Commercial Joint Stock Bank - ACB","ICON":"BNKVTC13.svg"},{"PAID":"BNKVTC14","ShortName":"HDBank","FullName":"Ho Chi Minh City Development Joint Stock Commercial Bank - HDBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC14|HDBank|Ho Chi Minh City Development Joint Stock Commercial Bank - HDBank","ICON":"BNKVTC14.svg"},{"PAID":"BNKVTC15","ShortName":"NamABank","FullName":"Nam A Commercial Joint Stock Bank - NamABank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC15|NamABank|Nam A Commercial Joint Stock Bank - NamABank","ICON":"BNKVTC15.svg"},{"PAID":"BNKVTC16","ShortName":"SaigonBank","FullName":"Saigon Bank for Industry and Trade - SaigonBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC16|SaigonBank|Saigon Bank for Industry and Trade - SaigonBank","ICON":"BNKVTC16.svg"},{"PAID":"BNKVTC17","ShortName":"Sacombank","FullName":"Saigon Thuong Tin Commercial Joint Stock Bank - Sacombank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC17|Sacombank|Saigon Thuong Tin Commercial Joint Stock Bank - Sacombank","ICON":"BNKVTC17.svg"},{"PAID":"BNKVTC18","ShortName":"VietABank","FullName":"VietNam Asia Commercial Joint Stock Bank - VietABank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC18|VietABank|VietNam Asia Commercial Joint Stock Bank - VietABank","ICON":"BNKVTC18.svg"},{"PAID":"BNKVTC19","ShortName":"VPBank","FullName":"Vietnam Prosperity Joint-Stock Commercial Bank - VPBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC19|VPBank|Vietnam Prosperity Joint-Stock Commercial Bank - VPBank","ICON":"BNKVTC19.svg"},{"PAID":"BNKVTC20","ShortName":"TienPhongBank","FullName":"Tien Phong Commercial Joint Stock Bank - TienPhongBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC20|TienPhongBank|Tien Phong Commercial Joint Stock Bank - TienPhongBank","ICON":"BNKVTC20.svg"},{"PAID":"BNKVTC21","ShortName":"SeaABank","FullName":"Southeast Asia Commercial Joint Stock Bank - SeABank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC21|SeaABank|Southeast Asia Commercial Joint Stock Bank - SeABank","ICON":"BNKVTC21.svg"},{"PAID":"BNKVTC22","ShortName":"PGBank","FullName":"Petrolimex Group Commercial Joint Stock Bank - PGBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC22|PGBank|Petrolimex Group Commercial Joint Stock Bank - PGBank","ICON":"BNKVTC22.svg"},{"PAID":"BNKVTC24","ShortName":"GPBank","FullName":"Global Petro Commercial Joint Stock Bank - GPBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC24|GPBank|Global Petro Commercial Joint Stock Bank - GPBank","ICON":"BNKVTC24.svg"},{"PAID":"BNKVTC25","ShortName":"BACABANK","FullName":"Bac A Commercial Joint Stock Bank - BacABank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC25|BACABANK|Bac A Commercial Joint Stock Bank - BacABank","ICON":"BNKVTC25.svg"},{"PAID":"BNKVTC26","ShortName":"OCB","FullName":"Orient Commercial Joint Stock Bank - OCB","Group":"BANK","CUID":"VND","Keyword":"BNKVTC26|OCB|Orient Commercial Joint Stock Bank - OCB","ICON":"BNKVTC26.svg"},{"PAID":"BNKVTC27","ShortName":"LienVietPostBank","FullName":"Lien Viet Post Joint Stock Commercial Bank - LienVietPostBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC27|LienVietPostBank|Lien Viet Post Joint Stock Commercial Bank - LienVietPostBank","ICON":"BNKVTC27.svg"},{"PAID":"BNKVTC28","ShortName":"ABBANK","FullName":"An Binh Commercial Join Stock Bank - ABBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC28|ABBANK|An Binh Commercial Join Stock Bank - ABBank","ICON":"BNKVTC28.svg"},{"PAID":"BNKVTC29","ShortName":"PVcomBank","FullName":"Vietnam Public Joint Stock Commercial Bank - PVcomBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC29|PVcomBank|Vietnam Public Joint Stock Commercial Bank - PVcomBank","ICON":"BNKVTC29.svg"},{"PAID":"BNKVTC30","ShortName":"BVB","FullName":"Bao Viet Joint Stock Commercial Bank - BaoVietBank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC30|BVB|Bao Viet Joint Stock Commercial Bank - BaoVietBank","ICON":"BNKVTC30.svg"},{"PAID":"BNKVTC31","ShortName":"SCBBank","FullName":"Sai Gon Joint Stock Commercial Bank - SCB","Group":"BANK","CUID":"VND","Keyword":"BNKVTC31|SCBBank|Sai Gon Joint Stock Commercial Bank - SCB","ICON":"BNKVTC31.svg"},{"PAID":"BNKVTC32","ShortName":"KienLongBank","FullName":"Kien Long Commercial Joint Stock Bank - Kienlongbank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC32|KienLongBank|Kien Long Commercial Joint Stock Bank - Kienlongbank","ICON":"BNKVTC32.svg"},{"PAID":"BNKVTC33","ShortName":"VRB","FullName":"Vietnam - Russia Joint Venture Bank - VRB","Group":"BANK","CUID":"VND","Keyword":"BNKVTC33|VRB|Vietnam - Russia Joint Venture Bank - VRB","ICON":"BNKVTC33.svg"},{"PAID":"BNKVTC34","ShortName":"PublicBank","FullName":"Public Bank","Group":"BANK","CUID":"VND","Keyword":"BNKVTC34|PublicBank|Public Bank","ICON":"BNKVTC34.svg"}],"Background":""};
+//         var json = {"Tpye":"ShowSMS","data":"MCORP DK10 VTCO C000010000001CP20211021221915","COID":"C000010000001CP20211021221915","PRODUCT":"Nạp 10000 VNĐ mua 30 Vàng","AMOUNTList":[{"AMOUNT":"10000.00","CUID":"VND"}],"SMS_Number":"5401","Background":""};
+//         initFunction(json);
+        $('.mt-item').on("click", function () {
             var _this = $(this);
             var paid = _this.data('paid');
             $('.mt-item').removeClass('selected');
             _this.addClass('selected');
-            if (paid == 'COPGAT01'){
-                $('.card-input-container').css('height','100%');
+            if (paid == 'COPGAT01') {
+                $('.card-input-container').css('height', '100%');
             }
             $('#f_SPAID').val(paid);
         });
-        $('.close_form_card').on("click", function() {
-            $('.card-input-container').css('height','0');
+        $('.close_form_card').on("click", function () {
+            $('.card-input-container').css('height', '0');
         });
-        $(".search").on("keyup", function() {
+        $(".search").on("keyup", function () {
             var _this = $(this);
             var value = $(this).val().toLowerCase();
             var id_tab_list = _this.data('searchtab');
             var ele_focus = id_tab_list + " .mt-item";
-            $(ele_focus).filter(function() {
+            $(ele_focus).filter(function () {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
-        $("#card_serial").on("keyup", function() {
+        $("#card_serial").on("keyup", function () {
             $('#f_Serial').val($(this).val());
         });
-        $("#card_pincode").on("keyup", function() {
+        $("#card_pincode").on("keyup", function () {
             $('#f_PinCode').val($(this).val());
         });
         $('#confirm').click(function () {
             var _f_SPAID = $('#f_SPAID').val();
             var _f_Serial = $('#f_Serial').val();
             var _f_PinCode = $('#f_PinCode').val();
-            if (!_f_SPAID){
+            if (!_f_SPAID) {
                 alert('Vui lòng chọn phương thức thanh toán!');
                 return false;
-            }else{
-                if((_f_Serial == '' || _f_PinCode == '') && _f_SPAID === 'COPGAT01'){
+            } else {
+                if ((_f_Serial == '' || _f_PinCode == '') && _f_SPAID === 'COPGAT01') {
                     alert('Vui lòng nhập thông tin thẻ nạp!');
                     return false;
                 }
             }
         });
     });
+
     function renderTabList(json) {
-        var groupData = _.groupBy(json.PAIDList, function(d){
+        var groupData = _.groupBy(json.PAIDList, function (d) {
             return d.Group
         });
         var htmlTab_selected = '';
         var htmlTab = '';
         var lastSelect = getLastSelect(json);
         var stt = 1;
-        $.each(groupData, function(i, item) {
-            if (lastSelect.length > 0){
-                if(lastSelect[0].Group === i){
+        $.each(groupData, function (i, item) {
+            if (lastSelect.length > 0) {
+                if (lastSelect[0].Group === i) {
                     htmlTab_selected += renderTabItem(i, true);
-                }else{
+                } else {
                     htmlTab += renderTabItem(i, false);
                 }
-                stt ++;
-            }else{
-                if (stt == 1){
+                stt++;
+            } else {
+                if (stt == 1) {
                     htmlTab += renderTabItem(i, true);
-                } else{
+                } else {
                     htmlTab += renderTabItem(i, false);
                 }
-                stt ++;
+                stt++;
             }
         });
         $('#tabName').html(htmlTab_selected + htmlTab);
     }
+
     function renderTabContentList(json) {
         renderListItem(json, 'TELECO', '#sms_list');
         renderListItem(json, 'COIN', '#card_list');
         renderListItem(json, 'BANK', '#bank_list');
         renderListItem(json, 'WALLET', '#wallet_list');
     }
+
     function getHtmlTab(name, title, selected, classActive) {
         var htmlTab = '<li>' +
-            '<a href="#'+name+'" data-toggle="tab" role="tab" aria-controls="'+name+'" aria-selected="'+selected+'" class="text-center '+classActive+'">' +
-            '<img src="https://cdn-files.esgame.vn/payment/icon/icon-'+name+'.png" alt="">' +
-            '<span>'+title+'</span>' +
+            '<a href="#' + name + '" data-toggle="tab" role="tab" aria-controls="' + name + '" aria-selected="' + selected + '" class="text-center ' + classActive + '">' +
+            '<img src="https://cdn-files.esgame.vn/payment/icon/icon-' + name + '.png" alt="">' +
+            '<span>' + title + '</span>' +
             '</a>' +
             '</li>';
         return htmlTab;
     }
+
     function renderListItem(json, type, ele) {
-        var data_array = $(json.PAIDList).filter(function (i,n){
+        var data_array = $(json.PAIDList).filter(function (i, n) {
             return n.Group === type;
         });
         var lastSelect = getLastSelect(json);
         var html_lastSelect = '';
         var html = '';
         var lastSelect_flag = false;
-        for (var i=0;i<data_array.length;i++)
-        {
-            if (lastSelect.length > 0){
-                if(lastSelect[0].Group === data_array[i].Group && lastSelect_flag === false){
+        for (var i = 0; i < data_array.length; i++) {
+            if (lastSelect.length > 0) {
+                if (lastSelect[0].Group === data_array[i].Group && lastSelect_flag === false) {
                     html += renderItem(lastSelect[0]);
                     lastSelect_flag = true;
                 }
-                if (lastSelect[0].PAID !== data_array[i].PAID){
+                if (lastSelect[0].PAID !== data_array[i].PAID) {
                     html += renderItem(data_array[i]);
                 }
-            }else{
+            } else {
                 html += renderItem(data_array[i]);
             }
         }
-        if (ele == '#card_list'){
-            $(ele).html(html_lastSelect+html+renderCardInput());
-        }else{
-            $(ele).html(html_lastSelect+html);
+        if (ele == '#card_list') {
+            $(ele).html(html_lastSelect + html + renderCardInput());
+        } else {
+            $(ele).html(html_lastSelect + html);
         }
     }
-    function renderTabItem(group, selected = false){
+
+    function renderTabItem(group, selected = false) {
         var htmlTab = '';
         var classActive = '';
         var classTabContentActive = '';
-        if (selected){
+        if (selected) {
             classActive = 'active';
             classTabContentActive = 'fade show active';
         }
-        if(group == "TELECO"){
+        if (group === "TELECO") {
             htmlTab += getHtmlTab('sms', 'SMS', selected, classActive);
             $('#sms').addClass(classTabContentActive);
         }
-        if (group ==  "COIN"){
+        if (group === "COIN") {
             htmlTab += getHtmlTab('card', 'Thẻ cào', selected, classActive);
             $('#card').addClass(classTabContentActive);
         }
-        if (group == "BANK"){
+        if (group === "BANK") {
             htmlTab += getHtmlTab('bank', 'Ngân hàng', selected, classActive);
             $('#bank').addClass(classTabContentActive);
         }
-        if (group == "WALLET"){
+        if (group === "WALLET") {
             htmlTab += getHtmlTab('wallet', 'Ví điện tử', selected, classActive);
             $('#wallet').addClass(classTabContentActive);
         }
         return htmlTab;
     }
+
     function renderOrderInfo(json) {
         $('#f_data').val(json.data);
         $('#order_name').html(json.PRODUCT);
         $('#order_id').html(json.COID);
-        $('#order_amount').html(addCommas(json.AMOUNTList[0].AMOUNT) + ' '+json.AMOUNTList[0].CUID);
+        $('#order_amount').html(addCommas(json.AMOUNTList[0].AMOUNT) + ' ' + json.AMOUNTList[0].CUID);
     }
+
     function renderItem(data) {
-        var html_item = '<div class="mt-item" data-paid="'+data.PAID+'">' +
+        var html_item = '<div class="mt-item" data-paid="' + data.PAID + '">' +
             '<div class="mt-item__icon d-flex justify-content-center align-items-center">' +
-            '<img src="'+getImageUrl(data.ICON)+'" alt="">' +
+            '<img src="' + getImageUrl(data.ICON) + '" alt="">' +
             '</div>' +
             '<div class="mt__name text-center">' +
             data.ShortName +
-            '<span class="mt__keyword">'+data.FullName +' '+ data.Keyword + '</span>'+
             '</div>' +
             '</div>';
         return html_item;
     }
+
     function renderCardInput() {
         var html_card_input = '<div class="card-input-container">' +
             '<div class="form_card">' +
@@ -651,6 +868,7 @@
             '</div>';
         return html_card_input;
     }
+
     function renderSmsContent(json) {
         let html_sms = '<div class="c_method">' +
             '<h2 class="text-center">SMS</h2>' +
@@ -658,22 +876,24 @@
             '<form action="" method="post" class="form_sms">' +
             '<div class="sms-content text-center mb-3">' + json.data +
             '</div>' +
-            '<a href="sms:'+ json.SMS_Number +'?&body='+ json.data +'" class="submit">Gửi mã trên đến '+ json.SMS_Number +' qua SMS</a>' +
+            '<a href="sms:' + json.SMS_Number + '?&body=' + json.data + '" class="submit">Gửi mã trên đến ' + json.SMS_Number + ' qua SMS</a>' +
             '</form>' +
             '</div>';
         $('.switch-type').html(html_sms);
     }
+
     function getLastSelect(json) {
-        var lastSelect = $(json.PAIDList).filter(function (i,n){
+        var lastSelect = $(json.PAIDList).filter(function (i, n) {
             return n.PAID === json.LastSelect;
         });
         return lastSelect;
     }
+
     function getImageUrl(img) {
-        return 'https://cdn-files.esgame.vn/payment/icon/'+img;
+        return 'https://cdn-files.esgame.vn/payment/icon/' + img;
     }
-    function addCommas(nStr)
-    {
+
+    function addCommas(nStr) {
         nStr += '';
         x = nStr.split('.');
         x1 = x[0];
