@@ -706,6 +706,11 @@
             _this.addClass('selected');
             if (paid == 'COPGAT01') {
                 $('.card-input-container').css('height', '100%');
+                $('#card_serial').prop('required',true);
+                $('#card_pincode').prop('required',true);
+            }else{
+                $('#card_serial').prop('required',false);
+                $('#card_pincode').prop('required',false);
             }
             $('#f_SPAID').val(paid);
         });
@@ -739,13 +744,6 @@
                 _this.prop('disabled', false);
                 _this.removeClass('loading');
                 return false;
-            } else {
-                if ((_f_Serial == '' || _f_PinCode == '') && _f_SPAID === 'COPGAT01') {
-                    alert('Vui lòng nhập thông tin thẻ nạp!');
-                    _this.prop('disabled', false);
-                    _this.removeClass('loading');
-                    return false;
-                }
             }
             $('.form-payment').submit();
         });
@@ -913,6 +911,9 @@
     }
 
     function getImageUrl(img) {
+        if (img.includes('http')) {
+            return img;
+        }
         return 'https://cdn-files.esgame.vn/payment/icon/' + img;
     }
 
