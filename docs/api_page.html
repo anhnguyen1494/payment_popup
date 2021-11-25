@@ -720,17 +720,9 @@
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
-        $("#card_serial").on("keyup", function () {
-            $('#f_Serial').val($(this).val());
-        });
-        $("#card_pincode").on("keyup", function () {
-            $('#f_PinCode').val($(this).val());
-        });
         $('#confirm').click(function () {
             var _this = $(this);
             var _f_SPAID = $('#f_SPAID').val();
-            var _f_Serial = $('#f_Serial').val();
-            var _f_PinCode = $('#f_PinCode').val();
             _this.prop('disabled', true);
             _this.addClass('loading');
             if (!_f_SPAID) {
@@ -739,12 +731,19 @@
                 _this.removeClass('loading');
                 return false;
             }else{
-                if((_f_Serial === '' || _f_PinCode === '') && _f_SPAID === 'COPGAT01'){
-                    alert('Vui lòng nhập thông tin thẻ nạp!');
-                    _this.prop('disabled', false);
-                    _this.removeClass('loading');
-                    return false;
+                if (_f_SPAID === 'COPGAT01'){
+                    var _f_Serial = $("#card_serial").val();
+                    var _f_PinCode = $("#card_pincode").val();
+                    $('#f_Serial').val(_f_Serial);
+                    $('#f_PinCode').val(_f_PinCode);
+                    if(_f_Serial === '' || _f_PinCode === ''){
+                        alert('Vui lòng nhập thông tin thẻ nạp!');
+                        _this.prop('disabled', false);
+                        _this.removeClass('loading');
+                        return false;
+                    }
                 }
+
             }
             $('.form-payment').submit();
         });
