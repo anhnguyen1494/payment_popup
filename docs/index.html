@@ -704,13 +704,8 @@
             var paid = _this.data('paid');
             $('.mt-item').removeClass('selected');
             _this.addClass('selected');
-            if (paid == 'COPGAT01') {
+            if (paid === 'COPGAT01') {
                 $('.card-input-container').css('height', '100%');
-                $('#card_serial').prop('required',true);
-                $('#card_pincode').prop('required',true);
-            }else{
-                $('#card_serial').prop('required',false);
-                $('#card_pincode').prop('required',false);
             }
             $('#f_SPAID').val(paid);
         });
@@ -744,6 +739,13 @@
                 _this.prop('disabled', false);
                 _this.removeClass('loading');
                 return false;
+            }else{
+                if((_f_Serial === '' || _f_PinCode === '') && _f_SPAID === 'COPGAT01'){
+                    alert('Vui lòng nhập thông tin thẻ nạp!');
+                    _this.prop('disabled', false);
+                    _this.removeClass('loading');
+                    return false;
+                }
             }
             $('.form-payment').submit();
         });
@@ -766,7 +768,7 @@
                 }
                 stt++;
             } else {
-                if (stt == 1) {
+                if (stt === 1) {
                     htmlTab += renderTabItem(i, true);
                 } else {
                     htmlTab += renderTabItem(i, false);
@@ -815,7 +817,7 @@
                 html += renderItem(data_array[i]);
             }
         }
-        if (ele == '#card_list') {
+        if (ele === '#card_list') {
             $(ele).html(html_lastSelect + html + renderCardInput());
         } else {
             $(ele).html(html_lastSelect + html);
