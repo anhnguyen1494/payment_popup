@@ -117,7 +117,7 @@
 
         .c_list {
             height: 270px;
-            overflow-y: auto;
+            overflow-y: scroll;
             margin-top: 3vw;
             position: relative;
         }
@@ -914,7 +914,7 @@
         if (img.includes('http')) {
             return img;
         }
-        return 'https://cdn-files.esgame.vn/payment/icon/' + img;
+        return 'https://cdn-files.esgame.vn/payment/icon/' + img + '?v=1.0.1';
     }
 
     function addCommas(nStr) {

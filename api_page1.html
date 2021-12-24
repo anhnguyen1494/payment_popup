@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    var data = "";
+    
+    function initFunction(jsonObj) {
+      data = jsonObj["data"];
+      document.getElementById("demo").innerHTML = JSON.stringify(jsonObj);
+      document.getElementById("data").innerHTML = data;
+      
+      document.getElementById("form1data").value = data;
+      document.getElementById("form2data").value = data;
+      document.getElementById("form3data").value = data;
+    }
+  </script>
+</head>
+<body>
+  <style>
+    h1{color:red;}
+  </style>
+  <h1 id="myheader">This is Test</h1>
+  
+  <p id="demo"></p></p>
+  <p id="data"></p>
+  
+  <form name="form1" id="form1" action="" method="post" target="_self">
+    <input type="hidden" name="SPAID" value="COPVTC02">
+    <input type="hidden" id="form1data" name="data" value="">
+  </form>
+  <button id="confirm" type="submit" form="form1" value="Submit">Test Send - VTC Pay</button>
+  
+  <form name="form2" id="form2" action="" method="post" target="_self">
+    <input type="hidden" name="SPAID" value="COPGAT01">
+    <input type="hidden" name="GSERIAL" value="CA00000000">
+    <input type="hidden" name="GPIN" value="1111111111">
+    <input type="hidden" id="form2data" name="data" value="">
+  </form>
+  <button id="confirm" type="submit" form="form2" value="Submit">Test Send - GATE</button>
+  
+  <form name="form3" id="form3" action="" method="post" target="_self">
+    <input type="hidden" name="SPAID" value="TELVTM01">
+    <input type="hidden" id="form3data" name="data" value="">
+  </form>
+  <button id="confirm" type="submit" form="form3" value="Submit">Test Send - VTM</button>
+</body>
+</html>
