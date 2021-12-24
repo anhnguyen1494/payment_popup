@@ -122,7 +122,26 @@
             margin-top: 3vw;
             position: relative;
         }
+        ::-webkit-scrollbar {
+            -webkit-appearance: none;
+        }
 
+        ::-webkit-scrollbar:vertical {
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar:horizontal {
+            height: 7px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #f2981b;
+            border: 2px solid #80808033;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #80808033;
+        }
         .mt-item {
             width: 24%;
             float: left;
