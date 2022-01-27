@@ -726,7 +726,7 @@
                         </div>
                         <div class="d-flex justify-content-between">
                             <span class="detail-name">Số tiền:</span>
-                            <span class="detail-value" id="order_amount"></span>
+                            <span class="detail-value" id="order_amount" data-vnd="" data-twd="" data-jpy=""></span>
                         </div>
                     </div>
                 </div>
@@ -752,20 +752,17 @@
             var paid = _this.data('paid');
             var cuid = _this.data('cuid');
             var text_amount = '';
-            var amount_list = json.AMOUNTList;
+            var _ele_order_amount = $('#order_amount');
             $('.mt-item').removeClass('selected');
             _this.addClass('selected');
-            var text_acount_vn = addCommas(parseInt(amount_list[0].AMOUNT)) + ' ' + amount_list[0].CUID;
-            var text_acount_tw = addCommas(parseInt(amount_list[1].AMOUNT)) + ' ' + amount_list[1].CUID;
-            var text_acount_jp = addCommas(parseInt(amount_list[2].AMOUNT)) + ' ' + amount_list[2].CUID;
             if (cuid == 'TWD') {
-                text_amount = text_acount_tw + ' ('+ text_acount_vn +')';
+                text_amount = _ele_order_amount.data('twd');
             }else if (cuid == 'JPY') {
-                text_amount = text_acount_jp + ' ('+ text_acount_vn +')';
+                text_amount = _ele_order_amount.data('jpy');
             }else{
-                text_amount = text_acount_vn;
+                text_amount = _ele_order_amount.data('vnd');
             }
-            $('#order_amount').html(text_amount);
+            _ele_order_amount.html(text_amount);
             if (paid === 'COPGAT01') {
                 $('.card-input-container').css('height', '100%');
             }
@@ -806,7 +803,6 @@
                         return false;
                     }
                 }
-
             }
             $('.form-payment').submit();
         });
@@ -916,7 +912,15 @@
         $('#f_data').val(json.data);
         $('#order_name').html(json.PRODUCT);
         $('#order_id').html(json.COID);
-        $('#order_amount').html(addCommas(parseInt(json.AMOUNTList[0].AMOUNT)) + ' ' + json.AMOUNTList[0].CUID);
+        var text_vnd = addCommas(parseInt(json.AMOUNTList[0].AMOUNT)) + ' ' + json.AMOUNTList[0].CUID;
+        var text_twd = addCommas(parseInt(json.AMOUNTList[1].AMOUNT)) + ' ' + json.AMOUNTList[1].CUID;
+        var text_jpy = addCommas(parseInt(json.AMOUNTList[2].AMOUNT)) + ' ' + json.AMOUNTList[2].CUID;
+        $('#order_amount').attr({
+            'data-vnd' : text_vnd,
+            'data-twd' : text_twd+ ' ('+text_vnd+')',
+            'data-jpy' : text_jpy+ ' ('+text_vnd+')',
+        });
+        $('#order_amount').html(text_vnd);
     }
 
     function renderItem(data) {
