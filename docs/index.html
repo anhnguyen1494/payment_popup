@@ -759,12 +759,15 @@
             var amount_list = json.AMOUNTList;
             $('.mt-item').removeClass('selected');
             _this.addClass('selected');
+            var text_acount_vn = addCommas(parseInt(amount_list[0].AMOUNT)) + ' ' + amount_list[0].CUID;
+            var text_acount_tw = addCommas(parseInt(amount_list[1].AMOUNT)) + ' ' + amount_list[1].CUID;
+            var text_acount_jp = addCommas(parseInt(amount_list[2].AMOUNT)) + ' ' + amount_list[2].CUID;
             if (cuid == 'TWD') {
-                text_amount = addCommas(parseInt(amount_list[1].AMOUNT)) + ' ' + amount_list[1].CUID;
+                text_amount = text_acount_tw + ' ('+ text_acount_vn +')';
             }else if (cuid == 'JPY') {
-                text_amount = addCommas(parseInt(amount_list[2].AMOUNT)) + ' ' + amount_list[2].CUID;
+                text_amount = text_acount_jp + ' ('+ text_acount_vn +')';
             }else{
-                text_amount = addCommas(parseInt(amount_list[0].AMOUNT)) + ' ' + amount_list[0].CUID;
+                text_amount = text_acount_vn;
             }
             $('#order_amount').html(text_amount);
             if (paid === 'COPGAT01') {
