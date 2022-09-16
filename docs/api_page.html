@@ -612,7 +612,7 @@
                 renderSmsContent(jsonObj);
             }
             renderOrderInfo(jsonObj);
-            if (jsonObj.PAID != ''){
+            if (typeof jsonObj.PAID !== 'undefined'){
                 $('#f_SPAID').val(jsonObj.PAID);
                 if (jsonObj.PAID == 'COPGAT01'){
                     $('.card-input-container').css('height', '100%');
